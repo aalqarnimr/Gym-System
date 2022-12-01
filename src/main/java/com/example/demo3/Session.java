@@ -1,28 +1,43 @@
 package com.example.demo3;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Session {
 
-    Workout[] normSession;
-    Workout[] warmupSession;
+    List<Workout> normSession=new ArrayList<>();
+    List<Workout> warmupSession=new ArrayList<>();
 
-    void addWorkout(Workout work, int session){
 
-    }
-    void addNormWorkout(){
+    public Session(){
 
     }
-
-    void mWorkout(Workout work){
-
+    void addWorkout(Workout work, int session){    // 0 = normal ,1=warmup
+        if (session==0)
+            normSession.add(work);
+        else
+            warmupSession.add(work);
     }
 
-    void DeleteWarmWorkout(Workout work){
+
+    void DeleteWorkout(Workout work,int session){
 
     }
 
     boolean isCompleted(){
-        if (warmupSession.length==0||warmupSession.length==0)
+        if (warmupSession.size()==0||warmupSession.size()==0)
             return false;
         return true;
+    }
+    public List<Workout> getNormSession(){
+        return normSession;
+    }
+
+    public List<Workout> getWarmupSession(){
+        return warmupSession;
+    }
+    public String toString(){
+        return normSession.toString();
     }
 }

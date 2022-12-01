@@ -6,14 +6,14 @@ public class Trainer extends Member{
 
 
 
-    Plan createPlan(){
+    static Plan createPlan(){
         return new Plan();
     }
 
     public void savePlan(Plan p){
         if (!p.isCompleted())
             return;
-        APIComm.addPlan(p);
+        APIComm.addPlanToDatabase(p);
     }
 
 //    public void getPlan(String planName) {

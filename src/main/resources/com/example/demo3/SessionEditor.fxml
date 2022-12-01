@@ -15,10 +15,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <DialogPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.SessionController">
    <content>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="360.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getDay" prefHeight="500.0" prefWidth="360.0">
          <children>
             <DialogPane layoutY="-3.0" prefHeight="500.0" prefWidth="360.0">
                <header>
@@ -46,7 +45,7 @@
                               <TableColumn fx:id="normTable" prefWidth="154.66668701171875" text="C2" />
                            </columns>
                         </TableView>
-                        <ChoiceBox fx:id="choiceDay" layoutX="201.0" layoutY="194.0" onContextMenuRequested="#showRadio" prefWidth="150.0">
+                        <ChoiceBox fx:id="choiceDay" accessibleRole="CHECK_BOX" layoutX="201.0" layoutY="194.0" prefWidth="150.0">
                            <effect>
                               <Bloom />
                            </effect>
@@ -56,17 +55,17 @@
                               <ToggleGroup fx:id="Session" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="radioNorm" layoutX="217.0" layoutY="300.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="115.0" text="Normal Session" toggleGroup="$Session" />
+                        <RadioButton fx:id="radioNorm" layoutX="217.0" layoutY="300.0" mnemonicParsing="false" onAction="#getDay" prefHeight="46.0" prefWidth="115.0" text="Normal Session" toggleGroup="$Session" />
                      </children>
                   </Pane>
                </content>
             </DialogPane>
-            <ListView fx:id="workList" layoutY="228.0" onDragDetected="#addTo" onEditCommit="#addTo" prefHeight="200.0" prefWidth="200.0" visible="false" />
+            <ListView fx:id="workList" layoutY="228.0" onDragDetected="#addWorkout" onEditCommit="#addWorkout" prefHeight="200.0" prefWidth="200.0" visible="false" />
          </children>
       </Pane>
    </content>
    <buttonTypes>
-      <ButtonType fx:constant="OK" />
+      <ButtonType fx:constant="APPLY" />
       <ButtonType fx:constant="CANCEL" />
    </buttonTypes>
 </DialogPane>

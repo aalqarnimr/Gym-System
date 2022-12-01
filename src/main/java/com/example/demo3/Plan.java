@@ -1,12 +1,12 @@
 package com.example.demo3;
 
+import java.util.Arrays;
 import java.util.Dictionary;
 
 public class Plan {
-    private Session[] sessions;
+    private Session[] sessions=new Session[7];
     private int[] busyDays;
 
-    private String []weeklyDays;
     private String name;
 
     public Plan(){
@@ -39,6 +39,9 @@ public class Plan {
         if (sessions.length==0)
             return false;
         return true;
+    }
+    public String toString(){
+        return Arrays.toString(sessions);
     }
 
 }

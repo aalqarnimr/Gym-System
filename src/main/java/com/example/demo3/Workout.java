@@ -8,7 +8,11 @@ public class Workout {
         this.name = name;
     }
 
+    public String toString(){
+        return name;
+    }
+
     public String getName(){
-        return "hey";
+        return name;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.swe206;
+package com.example.demo3;
 
 public class Schedule {
 
