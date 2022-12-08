@@ -46,8 +46,7 @@ public class SessionController {
         choiceDay.getItems().add("friday");
         choiceDay.getItems().add("Saturday");
         choiceDay.setValue("Choose a Day");
-        workList.getItems().add(new Workout("w"));
-        workList.getItems().add(new Workout("e"));
+        workList.getItems().addAll(APIComm.workouts);
     }
 
     public void showRadio(){

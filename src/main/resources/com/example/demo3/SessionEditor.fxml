@@ -57,7 +57,7 @@
                               <ToggleGroup fx:id="Session" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="radioNorm" layoutX="203.0" layoutY="300.0" mnemonicParsing="false" onAction="#getDay" prefHeight="46.0" prefWidth="115.0" text="Normal Session" toggleGroup="$Session" />
+                        <RadioButton fx:id="radioNorm" layoutX="203.0" layoutY="300.0" mnemonicParsing="false" onAction="#showWorkList" prefHeight="46.0" prefWidth="115.0" text="Normal Session" toggleGroup="$Session" />
                         <Label layoutX="203.0" layoutY="171.0" text="select a day:" />
                         <Text layoutX="203.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="choose workout type:" />
                      </children>

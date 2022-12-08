@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.Dictionary;
 
 public class Plan {
-    private Session[] sessions=new Session[7];
-    private int[] busyDays;
+    Session[] sessions=new Session[7];
+    int[] busyDays;
 
-    private String name;
+    private String name="unnamed";
 
     public Plan(){
         busyDays = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -42,7 +42,8 @@ public class Plan {
         return false;
     }
     public String toString(){
-        return Arrays.toString(sessions);
+        return name;
+
     }
 
 }

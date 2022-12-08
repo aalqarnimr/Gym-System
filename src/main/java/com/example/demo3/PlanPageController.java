@@ -17,9 +17,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 public class PlanPageController {
+
+
     private Plan plan;
 
     @FXML
@@ -101,10 +104,19 @@ public class PlanPageController {
     @FXML
     private TextField nameTextfield;
 
+    static String planName;
+
 
     public void initialize(){
-        plan = Trainer.createPlan();
-        System.out.println(plan);
+        if (!MainPageController.isEdit)
+            plan = Trainer.createPlan();
+        else {
+            plan = PlanListPageController.selectedPlan;
+            loadPlan();
+        }
+
+        APIComm.savedPlans.add(new Plan());
+
     }
 
     public void showSessionPane() throws IOException {
@@ -165,33 +177,40 @@ public class PlanPageController {
         }
     }
     public void homePage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SessionEditor.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("PlanList-view.fxml"));
         Stage stage = (Stage) savePlanButton.getScene().getWindow();
         Scene scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
     public void savePlan() throws IOException, InterruptedException {
-        Trainer.savePlan(plan);
         if (!plan.isCompleted())
             feedbackText.setText("error: the plan is not completed");
         else{
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane sessionDialogBox = fxmlLoader.load(getClass().getResource("SetPlanName-view.fxml"));
-            Dialog<ButtonType> dialog1 = new Dialog<>();
-            dialog1.setDialogPane((DialogPane) sessionDialogBox);
-            Optional<ButtonType> clickedButton = dialog1.showAndWait();
-            if (clickedButton.get() == ButtonType.OK){
+            TextInputDialog dialog1 = new TextInputDialog();
+            dialog1.setTitle("Plan Name");
+            dialog1.setHeaderText("Enter Plan name");
+            dialog1.setContentText("name: ");
+
+            Optional<String> planName = dialog1.showAndWait();
+            if (planName.isPresent()){
+                plan.setName(planName.get());
+                Trainer.savePlan(plan);
                 homePage();
             }
+            else {
+                feedbackText.setText("error: enter a name");
+            }
+            }
         }
-    }
-    public void setName(){
-        if (nameTextfield.getText().length()!=0)
-            plan.setName(nameTextfield.getText());
-        else
-            plan.setName("unnamed");
 
-    }
-
+        public void loadPlan(){
+            ObservableList<Session> sessionsList= FXCollections.observableArrayList();
+            for (int i=0;i<7;i++){
+                sessionsList.add(plan.sessions[i]);
+                if (plan.busyDays[i]==1)
+                    addSession(sessionsList,i);
+                sessionsList.clear();
+            }
+        }
 }
