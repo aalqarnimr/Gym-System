@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Session {
 
-    List<Workout> normSession=new ArrayList<>();
-    List<Workout> warmupSession=new ArrayList<>();
+    List<Workout> normSession=new LinkedList<>();
+    List<Workout> warmupSession=new LinkedList<>();
 
 
     public Session(){
@@ -26,7 +26,7 @@ public class Session {
     }
 
     boolean isCompleted(){
-        if (warmupSession.size()==0||warmupSession.size()==0)
+        if (normSession.size()==0||warmupSession.size()==0)
             return false;
         return true;
     }

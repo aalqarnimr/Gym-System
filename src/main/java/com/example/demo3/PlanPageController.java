@@ -1,20 +1,31 @@
 package com.example.demo3;
 
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.Optional;
 
 public class PlanPageController {
     private Plan plan;
 
-
+    @FXML
+    private Button savePlanButton;
+    @FXML
+    private Text feedbackText;
     @FXML
     private TableColumn<?, ?> friNorm;
 
@@ -81,6 +92,15 @@ public class PlanPageController {
     @FXML
     private StackPane addPane1;
 
+    @FXML
+    private Button DdoneButton;
+
+    @FXML
+    private Text nameFeedBack;
+
+    @FXML
+    private TextField nameTextfield;
+
 
     public void initialize(){
         plan = Trainer.createPlan();
@@ -96,7 +116,8 @@ public class PlanPageController {
         Optional<ButtonType> clickedButton = dialog1.showAndWait();
         if (clickedButton.get()==ButtonType.APPLY){
             plan.addSession(SessionController.session,sessionController.selectedDay);
-            addSession(SessionController.sessionsList,sessionController.selectedDay);
+            if (SessionController.session.isCompleted())
+                addSession(SessionController.sessionsList,sessionController.selectedDay);
         }
 
     }
@@ -142,6 +163,35 @@ public class PlanPageController {
             }
             default -> System.out.println("error");
         }
+    }
+    public void homePage() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("SessionEditor.fxml"));
+        Stage stage = (Stage) savePlanButton.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void savePlan() throws IOException, InterruptedException {
+        Trainer.savePlan(plan);
+        if (!plan.isCompleted())
+            feedbackText.setText("error: the plan is not completed");
+        else{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane sessionDialogBox = fxmlLoader.load(getClass().getResource("SetPlanName-view.fxml"));
+            Dialog<ButtonType> dialog1 = new Dialog<>();
+            dialog1.setDialogPane((DialogPane) sessionDialogBox);
+            Optional<ButtonType> clickedButton = dialog1.showAndWait();
+            if (clickedButton.get() == ButtonType.OK){
+                homePage();
+            }
+        }
+    }
+    public void setName(){
+        if (nameTextfield.getText().length()!=0)
+            plan.setName(nameTextfield.getText());
+        else
+            plan.setName("unnamed");
+
     }
 
 }

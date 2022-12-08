@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class SessionController {
     static Session session;
@@ -59,8 +60,16 @@ public class SessionController {
 
     }
 
-    public void addWorkout(){
-        Workout ss= workList.getSelectionModel().getSelectedItem();
+    public void doubleClick(MouseEvent click) {
+
+        if (click.getClickCount() == 2) {
+            //Use ListView's getSelected Item
+            Workout currentItemSelected = workList.getSelectionModel().getSelectedItem();
+            addWorkout(currentItemSelected);
+        }
+    }
+    public void addWorkout(Workout ss){
+//        Workout ss= workList.getSelectionModel().getSelectedItem();
         if (radioNorm.isSelected()){
             session.addWorkout(ss,0);
         }

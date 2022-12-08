@@ -23,8 +23,6 @@ public class Plan {
 
     void addSession(Session session,int day){
         if (!session.isCompleted()) return;
-        if (busyDays[day]==1)
-            return;
         sessions[day]=session;
         busyDays[day]=1;
     }
@@ -36,9 +34,12 @@ public class Plan {
     }
 
     boolean isCompleted(){
-        if (sessions.length==0)
-            return false;
-        return true;
+        for (int i=0;i<busyDays.length;i++){
+            if (busyDays[i]==1)
+                return true;
+        }
+
+        return false;
     }
     public String toString(){
         return Arrays.toString(sessions);
