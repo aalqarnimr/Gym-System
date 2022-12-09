@@ -1,12 +1,9 @@
 package com.example.demo3;
 
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -17,7 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class PlanPageController {
@@ -43,41 +40,30 @@ public class PlanPageController {
 
     @FXML
     private TableView<Session> saturTable;
-
     @FXML
     private TableColumn<?, ?> saturWarm;
-
     @FXML
     private TableColumn<?, ?> thursNorm;
-
     @FXML
     private TableView<Session> thursTable;
-
     @FXML
     private TableColumn<?, ?> thursWarm;
     @FXML
     private TableView<Session> sundaySchedule;
-
     @FXML
     private TableColumn<?, ?> sunNormTable;
-
     @FXML
     private TableColumn<?, ?> sunWarmTable;
     @FXML
     private TableColumn<?, ?> teusNorm;
-
     @FXML
     private TableView<Session> teusTable;
-
     @FXML
     private TableColumn<?, ?> teusWarm;
-
     @FXML
     private TableColumn<?, ?> wednNorm;
-
     @FXML
     private TableView<Session> wednTable;
-
     @FXML
     private TableColumn<?, ?> wednWarm;
 
@@ -89,22 +75,12 @@ public class PlanPageController {
 
     @FXML
     private TableColumn<?, ?> monWarm;
-    @FXML
-    private Button addButton;
+
 
     @FXML
-    private StackPane addPane1;
+    private ChoiceBox<String> DeleteChoice;
 
-    @FXML
-    private Button DdoneButton;
-
-    @FXML
-    private Text nameFeedBack;
-
-    @FXML
-    private TextField nameTextfield;
-
-    static String planName;
+    String[] days = {"Sunday","Monday","Teusday","Wednesday","Thursday","Friday","Saturday"};
 
 
     public void initialize(){
@@ -113,10 +89,8 @@ public class PlanPageController {
         else {
             plan = PlanListPageController.selectedPlan;
             loadPlan();
+            loadToDeleteChoice();
         }
-
-        APIComm.savedPlans.add(new Plan());
-
     }
 
     public void showSessionPane() throws IOException {
@@ -128,15 +102,19 @@ public class PlanPageController {
         Optional<ButtonType> clickedButton = dialog1.showAndWait();
         if (clickedButton.get()==ButtonType.APPLY){
             plan.addSession(SessionController.session,sessionController.selectedDay);
-            if (SessionController.session.isCompleted())
+            if (SessionController.session.isCompleted()){
                 addSession(SessionController.sessionsList,sessionController.selectedDay);
+                System.out.println(sessionController.selectedDay);
+                loadToDeleteChoice();
+            }
         }
 
     }
 
     public void addSession(ObservableList<Session> sessionList, int day){
         ObservableList<Session> sessionCopy= FXCollections.observableArrayList();
-        sessionCopy.add(sessionList.get(sessionList.size()-1));
+        if (!sessionList.isEmpty())
+            sessionCopy.add(sessionList.get(sessionList.size()-1));
         switch (day){
             case 0 -> {
                 sundaySchedule.setItems(sessionCopy);
@@ -186,6 +164,9 @@ public class PlanPageController {
     public void savePlan() throws IOException, InterruptedException {
         if (!plan.isCompleted())
             feedbackText.setText("error: the plan is not completed");
+        if (MainPageController.isEdit){
+            homePage();
+        }
         else{
             TextInputDialog dialog1 = new TextInputDialog();
             dialog1.setTitle("Plan Name");
@@ -211,6 +192,21 @@ public class PlanPageController {
                 if (plan.busyDays[i]==1)
                     addSession(sessionsList,i);
                 sessionsList.clear();
+            }
+        }
+        public void loadToDeleteChoice(){
+            DeleteChoice.getItems().clear();
+            for (int i=0;i<days.length;i++){
+                if (plan.busyDays[i]==1)
+                    DeleteChoice.getItems().add(days[i]);
+            }
+        }
+        public void deleteSession(){
+            int day = Arrays.asList(days).indexOf(DeleteChoice.getSelectionModel().getSelectedItem());
+            if (day!=-1){
+                plan.removeSession(day);
+                ObservableList<Session> sessionsList= FXCollections.observableArrayList();
+                addSession(sessionsList,day);
             }
         }
 }

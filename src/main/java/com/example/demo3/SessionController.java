@@ -79,6 +79,7 @@ public class SessionController {
         sessionTable.setItems(sessionsList);
         normTable.setCellValueFactory(new PropertyValueFactory<>("normSession"));
         warmTable.setCellValueFactory(new PropertyValueFactory<>("warmupSession"));
+        getDay();
     }
 
     public void getDay(){

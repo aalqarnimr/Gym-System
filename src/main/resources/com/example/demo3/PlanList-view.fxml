@@ -15,6 +15,6 @@
          </font>
       </Text>
       <Button fx:id="EditPlanButton" layoutX="148.0" layoutY="520.0" mnemonicParsing="false" onAction="#setPlanToEdit" text="Edit plan" />
-      <Text fx:id="feedText" layoutX="71.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="218.13665771484375" />
+      <Text fx:id="feedText" layoutX="71.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="218.13665771484375" />
    </children>
 </AnchorPane>
