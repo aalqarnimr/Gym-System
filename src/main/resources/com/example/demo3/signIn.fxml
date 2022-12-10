@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TextField?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.signIn">
    <children>
       <Label layoutX="110.0" layoutY="14.0" text="SIGN IN">
@@ -15,6 +16,23 @@
       <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField layoutX="106.0" layoutY="231.0" promptText="username" />
+      <TextField layoutX="106.0" layoutY="288.0" promptText="password" />
+      <Label layoutX="106.0" layoutY="214.0" text="Username:" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="106.0" layoutY="269.0" text="Password:" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
          </font>
       </Button>
    </children>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,6 +17,29 @@
       <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back">
          <font>
             <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField layoutX="106.0" layoutY="231.0" promptText="username" />
+      <TextField layoutX="106.0" layoutY="288.0" promptText="password" />
+      <ChoiceBox fx:id="personType" layoutX="105.0" layoutY="379.0" prefWidth="150.0" />
+      <Label layoutX="106.0" layoutY="214.0" text="Username:" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="106.0" layoutY="269.0" text="Password:" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="106.0" layoutY="362.0" text="Sign up as:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signUpMessage" text="Sign Up" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
          </font>
       </Button>
    </children>

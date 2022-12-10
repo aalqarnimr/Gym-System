@@ -23,4 +23,8 @@ public class signIn {
         stage.show();
     }
 
+    public void signInMessage(ActionEvent event){
+        System.out.println("SIGNED IN!");
+    }
+
 }
