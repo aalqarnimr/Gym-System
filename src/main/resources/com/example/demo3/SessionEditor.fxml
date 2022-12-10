@@ -3,6 +3,7 @@
 <?import javafx.scene.control.ButtonType?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -14,8 +15,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<DialogPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.SessionController">
+<DialogPane onMouseClicked="#getDay" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.SessionController">
    <content>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getDay" prefHeight="500.0" prefWidth="360.0">
          <children>
@@ -41,26 +43,28 @@
                      <children>
                         <TableView fx:id="sessionTable" layoutX="10.0" layoutY="-10.0" prefHeight="171.0" prefWidth="341.0">
                            <columns>
-                              <TableColumn fx:id="warmTable" prefWidth="165.3333740234375" text="C1" />
-                              <TableColumn fx:id="normTable" prefWidth="154.66668701171875" text="C2" />
+                              <TableColumn fx:id="warmTable" prefWidth="165.3333740234375" text="Warm up" />
+                              <TableColumn fx:id="normTable" prefWidth="154.66668701171875" text="Normal" />
                            </columns>
                         </TableView>
                         <ChoiceBox fx:id="choiceDay" accessibleRole="CHECK_BOX" layoutX="201.0" layoutY="194.0" prefWidth="150.0">
                            <effect>
-                              <Bloom />
+                              <Bloom threshold="1.0" />
                            </effect>
                         </ChoiceBox>
-                        <RadioButton fx:id="radioWarm" layoutX="217.0" layoutY="239.0" mnemonicParsing="false" onAction="#showWorkList" prefHeight="107.0" prefWidth="114.0" text="WarmupSession">
+                        <RadioButton fx:id="radioWarm" layoutX="203.0" layoutY="239.0" mnemonicParsing="false" onAction="#showWorkList" prefHeight="107.0" prefWidth="114.0" text="WarmupSession">
                            <toggleGroup>
                               <ToggleGroup fx:id="Session" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="radioNorm" layoutX="217.0" layoutY="300.0" mnemonicParsing="false" onAction="#getDay" prefHeight="46.0" prefWidth="115.0" text="Normal Session" toggleGroup="$Session" />
+                        <RadioButton fx:id="radioNorm" layoutX="203.0" layoutY="300.0" mnemonicParsing="false" onAction="#showWorkList" prefHeight="46.0" prefWidth="115.0" text="Normal Session" toggleGroup="$Session" />
+                        <Label layoutX="203.0" layoutY="171.0" text="select a day:" />
+                        <Text layoutX="203.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="choose workout type:" />
                      </children>
                   </Pane>
                </content>
             </DialogPane>
-            <ListView fx:id="workList" layoutY="228.0" onDragDetected="#addWorkout" onEditCommit="#addWorkout" prefHeight="200.0" prefWidth="200.0" visible="false" />
+            <ListView fx:id="workList" layoutY="228.0" onMouseClicked="#doubleClick" prefHeight="200.0" prefWidth="200.0" visible="false" />
          </children>
       </Pane>
    </content>

@@ -10,7 +10,7 @@ public class Trainer extends Member{
         return new Plan();
     }
 
-    public void savePlan(Plan p){
+    public static void savePlan(Plan p){
         if (!p.isCompleted())
             return;
         APIComm.addPlanToDatabase(p);

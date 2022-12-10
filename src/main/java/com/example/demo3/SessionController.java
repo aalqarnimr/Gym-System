@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class SessionController {
     static Session session;
@@ -45,8 +46,7 @@ public class SessionController {
         choiceDay.getItems().add("friday");
         choiceDay.getItems().add("Saturday");
         choiceDay.setValue("Choose a Day");
-        workList.getItems().add(new Workout("w"));
-        workList.getItems().add(new Workout("e"));
+        workList.getItems().addAll(APIComm.workouts);
     }
 
     public void showRadio(){
@@ -59,8 +59,16 @@ public class SessionController {
 
     }
 
-    public void addWorkout(){
-        Workout ss= workList.getSelectionModel().getSelectedItem();
+    public void doubleClick(MouseEvent click) {
+
+        if (click.getClickCount() == 2) {
+            //Use ListView's getSelected Item
+            Workout currentItemSelected = workList.getSelectionModel().getSelectedItem();
+            addWorkout(currentItemSelected);
+        }
+    }
+    public void addWorkout(Workout ss){
+//        Workout ss= workList.getSelectionModel().getSelectedItem();
         if (radioNorm.isSelected()){
             session.addWorkout(ss,0);
         }
@@ -71,6 +79,7 @@ public class SessionController {
         sessionTable.setItems(sessionsList);
         normTable.setCellValueFactory(new PropertyValueFactory<>("normSession"));
         warmTable.setCellValueFactory(new PropertyValueFactory<>("warmupSession"));
+        getDay();
     }
 
     public void getDay(){

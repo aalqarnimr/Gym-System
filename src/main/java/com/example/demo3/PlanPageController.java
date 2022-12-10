@@ -4,17 +4,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class PlanPageController {
+
+
     private Plan plan;
 
-
+    @FXML
+    private Button savePlanButton;
+    @FXML
+    private Text feedbackText;
     @FXML
     private TableColumn<?, ?> friNorm;
 
@@ -29,41 +40,30 @@ public class PlanPageController {
 
     @FXML
     private TableView<Session> saturTable;
-
     @FXML
     private TableColumn<?, ?> saturWarm;
-
     @FXML
     private TableColumn<?, ?> thursNorm;
-
     @FXML
     private TableView<Session> thursTable;
-
     @FXML
     private TableColumn<?, ?> thursWarm;
     @FXML
     private TableView<Session> sundaySchedule;
-
     @FXML
     private TableColumn<?, ?> sunNormTable;
-
     @FXML
     private TableColumn<?, ?> sunWarmTable;
     @FXML
     private TableColumn<?, ?> teusNorm;
-
     @FXML
     private TableView<Session> teusTable;
-
     @FXML
     private TableColumn<?, ?> teusWarm;
-
     @FXML
     private TableColumn<?, ?> wednNorm;
-
     @FXML
     private TableView<Session> wednTable;
-
     @FXML
     private TableColumn<?, ?> wednWarm;
 
@@ -75,16 +75,22 @@ public class PlanPageController {
 
     @FXML
     private TableColumn<?, ?> monWarm;
-    @FXML
-    private Button addButton;
+
 
     @FXML
-    private StackPane addPane1;
+    private ChoiceBox<String> DeleteChoice;
+
+    String[] days = {"Sunday","Monday","Teusday","Wednesday","Thursday","Friday","Saturday"};
 
 
     public void initialize(){
-        plan = Trainer.createPlan();
-        System.out.println(plan);
+        if (!MainPageController.isEdit)
+            plan = Trainer.createPlan();
+        else {
+            plan = PlanListPageController.selectedPlan;
+            loadPlan();
+            loadToDeleteChoice();
+        }
     }
 
     public void showSessionPane() throws IOException {
@@ -96,14 +102,19 @@ public class PlanPageController {
         Optional<ButtonType> clickedButton = dialog1.showAndWait();
         if (clickedButton.get()==ButtonType.APPLY){
             plan.addSession(SessionController.session,sessionController.selectedDay);
-            addSession(SessionController.sessionsList,sessionController.selectedDay);
+            if (SessionController.session.isCompleted()){
+                addSession(SessionController.sessionsList,sessionController.selectedDay);
+                System.out.println(sessionController.selectedDay);
+                loadToDeleteChoice();
+            }
         }
 
     }
 
     public void addSession(ObservableList<Session> sessionList, int day){
         ObservableList<Session> sessionCopy= FXCollections.observableArrayList();
-        sessionCopy.add(sessionList.get(sessionList.size()-1));
+        if (!sessionList.isEmpty())
+            sessionCopy.add(sessionList.get(sessionList.size()-1));
         switch (day){
             case 0 -> {
                 sundaySchedule.setItems(sessionCopy);
@@ -143,5 +154,59 @@ public class PlanPageController {
             default -> System.out.println("error");
         }
     }
+    public void homePage() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PlanList-view.fxml"));
+        Stage stage = (Stage) savePlanButton.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void savePlan() throws IOException, InterruptedException {
+        if (!plan.isCompleted())
+            feedbackText.setText("error: the plan is not completed");
+        if (MainPageController.isEdit){
+            homePage();
+        }
+        else{
+            TextInputDialog dialog1 = new TextInputDialog();
+            dialog1.setTitle("Plan Name");
+            dialog1.setHeaderText("Enter Plan name");
+            dialog1.setContentText("name: ");
 
+            Optional<String> planName = dialog1.showAndWait();
+            if (planName.isPresent()){
+                plan.setName(planName.get());
+                Trainer.savePlan(plan);
+                homePage();
+            }
+            else {
+                feedbackText.setText("error: enter a name");
+            }
+            }
+        }
+
+        public void loadPlan(){
+            ObservableList<Session> sessionsList= FXCollections.observableArrayList();
+            for (int i=0;i<7;i++){
+                sessionsList.add(plan.sessions[i]);
+                if (plan.busyDays[i]==1)
+                    addSession(sessionsList,i);
+                sessionsList.clear();
+            }
+        }
+        public void loadToDeleteChoice(){
+            DeleteChoice.getItems().clear();
+            for (int i=0;i<days.length;i++){
+                if (plan.busyDays[i]==1)
+                    DeleteChoice.getItems().add(days[i]);
+            }
+        }
+        public void deleteSession(){
+            int day = Arrays.asList(days).indexOf(DeleteChoice.getSelectionModel().getSelectedItem());
+            if (day!=-1){
+                plan.removeSession(day);
+                ObservableList<Session> sessionsList= FXCollections.observableArrayList();
+                addSession(sessionsList,day);
+            }
+        }
 }

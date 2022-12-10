@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,5 +50,10 @@ public class signUp implements Initializable {
 
     public void gType(ActionEvent event){
         String personTypeValue = personType.getValue();
+    }
+
+
+    public static void main(String[] args) {
+
     }
 }
