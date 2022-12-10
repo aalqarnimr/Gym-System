@@ -17,15 +17,17 @@ public class wlcPageController {
 
 
     public void toSigninScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("signIn.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+
+
     public void toSignupScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
