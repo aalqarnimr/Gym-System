@@ -42,4 +42,11 @@ public class PlanListPageController {
         }
 
     }
+    public void homePage() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PlanList-view.fxml"));
+        Stage stage = (Stage) feedText.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

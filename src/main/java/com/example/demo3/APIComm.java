@@ -62,5 +62,18 @@ public class APIComm implements Initializable {
         startingStrength.sessions=strSessions;
         startingStrength.setName("Starting strength");
         savedPlans.add(startingStrength);
+        Plan strongLifts = new Plan();
+        Session[] slSessions = {new Session(),new Session(),new Session(),new Session(),new Session()};
+        int[] days = {0,1,4,5,6};
+        for (int i= 0;i<days.length;i++){
+            slSessions[i].addWorkout(workouts[0],1);
+            slSessions[i].addWorkout(workouts[1],1);
+            slSessions[i].addWorkout(workouts[3],0);
+            slSessions[i].addWorkout(workouts[4],0);
+            slSessions[i].addWorkout(workouts[5],0);
+            strongLifts.addSession(slSessions[i],days[i]);
+        }
+        strongLifts.setName("Strong Lifts");
+        savedPlans.add(strongLifts);
     }
 }

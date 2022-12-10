@@ -80,6 +80,9 @@ public class PlanPageController {
     @FXML
     private ChoiceBox<String> DeleteChoice;
 
+    @FXML
+    private Label pageNameText;
+
     String[] days = {"Sunday","Monday","Teusday","Wednesday","Thursday","Friday","Saturday"};
 
 
@@ -87,6 +90,7 @@ public class PlanPageController {
         if (!MainPageController.isEdit)
             plan = Trainer.createPlan();
         else {
+            pageNameText.setText("Modify Plan");
             plan = PlanListPageController.selectedPlan;
             loadPlan();
             loadToDeleteChoice();
@@ -104,7 +108,6 @@ public class PlanPageController {
             plan.addSession(SessionController.session,sessionController.selectedDay);
             if (SessionController.session.isCompleted()){
                 addSession(SessionController.sessionsList,sessionController.selectedDay);
-                System.out.println(sessionController.selectedDay);
                 loadToDeleteChoice();
             }
         }
@@ -164,7 +167,7 @@ public class PlanPageController {
     public void savePlan() throws IOException, InterruptedException {
         if (!plan.isCompleted())
             feedbackText.setText("error: the plan is not completed");
-        if (MainPageController.isEdit){
+        else if (MainPageController.isEdit){
             homePage();
         }
         else{
@@ -182,31 +185,32 @@ public class PlanPageController {
             else {
                 feedbackText.setText("error: enter a name");
             }
-            }
         }
+    }
 
-        public void loadPlan(){
+    public void loadPlan(){
+        ObservableList<Session> sessionsList= FXCollections.observableArrayList();
+        for (int i=0;i<7;i++){
+            sessionsList.add(plan.sessions[i]);
+            if (plan.busyDays[i]==1)
+                addSession(sessionsList,i);
+            sessionsList.clear();
+        }
+    }
+    public void loadToDeleteChoice(){
+        DeleteChoice.getItems().clear();
+        for (int i=0;i<days.length;i++){
+            if (plan.busyDays[i]==1)
+                DeleteChoice.getItems().add(days[i]);
+        }
+    }
+    public void deleteSession(){
+        int day = Arrays.asList(days).indexOf(DeleteChoice.getSelectionModel().getSelectedItem());
+        if (day!=-1){
+            plan.removeSession(day);
             ObservableList<Session> sessionsList= FXCollections.observableArrayList();
-            for (int i=0;i<7;i++){
-                sessionsList.add(plan.sessions[i]);
-                if (plan.busyDays[i]==1)
-                    addSession(sessionsList,i);
-                sessionsList.clear();
-            }
+            addSession(sessionsList,day);
+            loadToDeleteChoice();
         }
-        public void loadToDeleteChoice(){
-            DeleteChoice.getItems().clear();
-            for (int i=0;i<days.length;i++){
-                if (plan.busyDays[i]==1)
-                    DeleteChoice.getItems().add(days[i]);
-            }
-        }
-        public void deleteSession(){
-            int day = Arrays.asList(days).indexOf(DeleteChoice.getSelectionModel().getSelectedItem());
-            if (day!=-1){
-                plan.removeSession(day);
-                ObservableList<Session> sessionsList= FXCollections.observableArrayList();
-                addSession(sessionsList,day);
-            }
-        }
+    }
 }

@@ -51,9 +51,4 @@ public class signUp implements Initializable {
     public void gType(ActionEvent event){
         String personTypeValue = personType.getValue();
     }
-
-
-    public static void main(String[] args) {
-
-    }
 }
