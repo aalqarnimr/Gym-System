@@ -11,15 +11,21 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class signUp implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
 
     @FXML
     private Label label;
@@ -51,4 +57,12 @@ public class signUp implements Initializable {
     public void gType(ActionEvent event){
         String personTypeValue = personType.getValue();
     }
+
+
+    public static void main(String[] args) {
+
+    }
+
+
 }
+

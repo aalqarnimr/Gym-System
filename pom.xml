@@ -39,9 +39,24 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10</version>
+            <groupId>com.pepegar</groupId>
+            <artifactId>hammock-asynchttpclient_2.13</artifactId>
+            <version>0.11.3</version>
+        </dependency>
+        <dependency>
+            <groupId>net.callumtaylor</groupId>
+            <artifactId>asynchttpclient</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.15</version>
+        </dependency>
+        <dependency>
+            <groupId>au.com.dius.pact.provider</groupId>
+            <artifactId>maven</artifactId>
+            <version>4.4.2</version>
         </dependency>
 
     </dependencies>
