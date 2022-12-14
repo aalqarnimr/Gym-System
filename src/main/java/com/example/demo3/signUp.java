@@ -71,11 +71,9 @@ public class signUp implements Initializable {
         personType.setValue("trainee");
         personType.setOnAction(this::gType);
     }
-
     public void gType(ActionEvent event){
         String personTypeValue = personType.getValue();
     }
-
 
     public static void main(String[] args) {
 
