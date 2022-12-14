@@ -6,8 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-
-
 public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -17,8 +15,6 @@ public class MainApp extends Application {
         stage.setTitle("GymApp");
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     public static void main(String[] args) {

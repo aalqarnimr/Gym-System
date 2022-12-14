@@ -15,11 +15,6 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <TextField fx:id="usernameText" layoutX="106.0" layoutY="231.0" promptText="Username" />
       <Label layoutX="106.0" layoutY="214.0" text="Username:" textAlignment="CENTER">
          <font>
@@ -31,17 +26,22 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Button>
-      <TextField fx:id="passTextField" layoutX="106.0" layoutY="288.0" visible="false" />
       <PasswordField fx:id="passwordField" layoutX="106.0" layoutY="288.0" promptText="Password" />
       <CheckBox fx:id="checkBox" layoutX="255.0" layoutY="292.0" mnemonicParsing="false" onAction="#passToggle" prefHeight="17.0" prefWidth="104.0" text="show password">
          <font>
             <Font size="11.0" />
          </font>
       </CheckBox>
+      <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="passTextField" layoutX="106.0" layoutY="288.0" visible="false" />
+      <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

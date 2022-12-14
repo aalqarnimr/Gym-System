@@ -7,27 +7,27 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.signUp">
+<Pane fx:id="signUpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.signUp">
    <children>
-      <Label layoutX="110.0" layoutY="14.0" text="SIGN UP">
+      <Label fx:id="signUpLabel" layoutX="110.0" layoutY="14.0" text="SIGN UP">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back">
+      <Button fx:id="backButton" layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField layoutX="106.0" layoutY="231.0" promptText="username" />
-      <TextField layoutX="106.0" layoutY="288.0" promptText="password" />
+      <TextField fx:id="usernametext" layoutX="106.0" layoutY="231.0" promptText="username" />
+      <TextField fx:id="passwordField" layoutX="106.0" layoutY="288.0" promptText="password" />
       <ChoiceBox fx:id="personType" layoutX="105.0" layoutY="379.0" prefWidth="150.0" />
-      <Label layoutX="106.0" layoutY="214.0" text="Username:" textAlignment="CENTER">
+      <Label fx:id="usernameLabel" layoutX="106.0" layoutY="214.0" text="Username:" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="269.0" text="Password:" textAlignment="CENTER">
+      <Label fx:id="passwordLabel" layoutX="106.0" layoutY="269.0" text="Password:" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -37,7 +37,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signUpMessage" text="Sign Up" textAlignment="CENTER">
+      <Button fx:id="signUpButton" layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signUpMessage" text="Sign Up" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
          </font>
