@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.TextField?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.signIn">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.signInController">
    <children>
       <Label layoutX="110.0" layoutY="14.0" text="SIGN IN">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <TextField layoutX="106.0" layoutY="231.0" promptText="username" />
-      <TextField layoutX="106.0" layoutY="288.0" promptText="password" />
+      <TextField fx:id="usernameText" layoutX="106.0" layoutY="231.0" promptText="Username" />
       <Label layoutX="106.0" layoutY="214.0" text="Username:" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -30,9 +26,21 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <PasswordField fx:id="passwordField" layoutX="106.0" layoutY="288.0" promptText="Password" />
+      <CheckBox fx:id="checkBox" layoutX="255.0" layoutY="292.0" mnemonicParsing="false" onAction="#passToggle" prefHeight="17.0" prefWidth="104.0" text="show password">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </CheckBox>
       <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="passTextField" layoutX="106.0" layoutY="288.0" visible="false" />
+      <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
          </font>
       </Button>
    </children>
