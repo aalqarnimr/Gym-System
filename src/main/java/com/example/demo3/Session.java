@@ -1,10 +1,11 @@
 package com.example.demo3;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Session {
+public class Session implements Serializable {
 
     List<Workout> normSession=new LinkedList<>();
     List<Workout> warmupSession=new LinkedList<>();

@@ -1,9 +1,10 @@
 package com.example.demo3;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Dictionary;
 
-public class Plan {
+public class Plan implements Serializable {
     Session[] sessions=new Session[7];
     int[] busyDays;
 

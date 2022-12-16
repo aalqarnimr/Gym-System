@@ -1,6 +1,8 @@
 package com.example.demo3;
 
-public class Workout {
+import java.io.Serializable;
+
+public class Workout implements Serializable {
     private String name;
     private String targetedMuscles;
     private int targetedSets;
