@@ -87,7 +87,7 @@ public class PlanPageController {
 
 
     public void initialize(){
-        if (!MainPageController.isEdit)
+        if (!TrainerController.isEdit)
             plan = Trainer.createPlan();
         else {
             pageNameText.setText("Modify Plan");

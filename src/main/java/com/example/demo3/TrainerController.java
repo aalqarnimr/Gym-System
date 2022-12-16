@@ -28,6 +28,12 @@ public class TrainerController {
     @FXML
     private Button confirmButton;
     @FXML
+    private Button modifyAccountButton;
+    @FXML
+    private Button addPlanButton;
+    @FXML
+    private Button modifyPlanButton;
+    @FXML
     private Button mainPageButton;
     @FXML
     private Label label1;
@@ -35,13 +41,16 @@ public class TrainerController {
     private Label label2;
     @FXML
     private TextField textField1;
+    static boolean isEdit;
 
     int traineeId;
     int x=0;
     Trainer trainer=new Trainer();
 
 
-
+    public void initialize(){
+        isEdit=false;
+    }
 
     @FXML
     public void toInfoPage() throws IOException {
@@ -108,6 +117,30 @@ public class TrainerController {
             System.out.println(e);
             label2.setText("Wrong ID enterd");
         }
+    }
+    @FXML
+    public void goToAddPlan() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("AddPlan-view.fxml"));
+        Stage stage = (Stage) addPlanButton.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void goToPlanList() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("PlanList-view.fxml"));
+        Stage stage = (Stage) modifyPlanButton.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void goToModifyAccount() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("trainerPage.fxml"));
+        Stage stage = (Stage) modifyPlanButton.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

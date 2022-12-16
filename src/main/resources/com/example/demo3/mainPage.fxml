@@ -11,7 +11,7 @@
 
 <AnchorPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.TrainerController">
    <children>
-      <Button fx:id="addTraineeButton" cache="true" layoutX="125.0" layoutY="173.0" mnemonicParsing="false" onAction="#toInfoPage" prefHeight="70.0" prefWidth="110.0" text="Add Trainee">
+      <Button fx:id="addTraineeButton" cache="true" layoutX="221.0" layoutY="160.0" mnemonicParsing="false" onAction="#toInfoPage" prefHeight="70.0" prefWidth="110.0" text="Add Trainee">
          <effect>
             <DropShadow />
          </effect>
@@ -28,13 +28,46 @@
          <effect>
             <InnerShadow />
          </effect></Label>
-      <Button fx:id="deleteTraineeButton" cache="true" layoutX="126.0" layoutY="372.0" mnemonicParsing="false" onAction="#toDeletePage" prefHeight="70.0" prefWidth="110.0" text="Delete Trainee">
+      <Button fx:id="deleteTraineeButton" cache="true" layoutX="42.0" layoutY="160.0" mnemonicParsing="false" onAction="#toDeletePage" prefHeight="70.0" prefWidth="110.0" text="Delete Trainee">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
          <effect>
             <DropShadow />
          </effect></Button>
+      <Button fx:id="addPlanButton" cache="true" layoutX="221.0" layoutY="377.0" mnemonicParsing="false" onAction="#goToAddPlan" prefHeight="70.0" prefWidth="110.0" text="Add plan">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+      <Button fx:id="modifyPlanButton" cache="true" layoutX="42.0" layoutY="377.0" mnemonicParsing="false" onAction="#goToPlanList" prefHeight="70.0" prefWidth="110.0" text="Modify Plan">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+      <Button fx:id="modifyAccountButton" cache="true" layoutX="42.0" layoutY="537.0" mnemonicParsing="false" onAction="#goToModifyAccount" prefHeight="38.0" prefWidth="110.0" text="Modify account">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
    </children>
    <effect>
       <InnerShadow height="150.0" radius="74.5" width="150.0">
