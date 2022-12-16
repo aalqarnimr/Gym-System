@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class wlcPageController {
@@ -15,7 +14,6 @@ public class wlcPageController {
     private Scene scene;
     private Parent root;
 
-
     public void toSigninScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("signIn.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -23,8 +21,6 @@ public class wlcPageController {
         stage.setScene(scene);
         stage.show();
     }
-
-
 
     public void toSignupScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
@@ -40,7 +36,5 @@ public class wlcPageController {
     }
     public void signUp(ActionEvent e) {
         System.out.println("sign up");
-
-
     }
 }

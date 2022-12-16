@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="traineePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.traineeAccount">
+<Pane fx:id="traineePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.trainerAccount">
    <children>
       <ImageView fx:id="imageView" fitHeight="164.0" fitWidth="149.0" layoutX="106.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,10 +20,12 @@
       </ImageView>
       <Button fx:id="changePicButton" layoutX="134.0" layoutY="181.0" mnemonicParsing="false" onAction="#setChangePicButton" text="Change photo" textAlignment="CENTER" />
       <Label fx:id="heightLabel" layoutX="105.0" layoutY="213.0" text="Height:" />
-      <Label fx:id="weightLabel" layoutX="105.0" layoutY="321.0" text="Weight:" />
+      <Label fx:id="weightLabel" layoutX="105.0" layoutY="303.0" text="Weight:" />
       <TextField fx:id="heightTextField" layoutX="106.0" layoutY="230.0" promptText="height here" />
-      <TextField fx:id="weightTextField" layoutX="106.0" layoutY="338.0" promptText="weight here" />
+      <TextField fx:id="weightTextField" layoutX="106.0" layoutY="320.0" promptText="weight here" />
+      <TextField fx:id="specialtyTextField" layoutX="106.0" layoutY="410.0" promptText="specialty here" />
       <Button fx:id="saveButton" layoutX="185.0" layoutY="526.0" mnemonicParsing="false" onAction="#saveChanges" text="Save" />
       <Button fx:id="cancelButton" layoutX="125.0" layoutY="526.0" mnemonicParsing="false" text="Cancel" />
+      <Label fx:id="specialtyLabel" layoutX="105.0" layoutY="393.0" text="Specialty" />
    </children>
 </Pane>
