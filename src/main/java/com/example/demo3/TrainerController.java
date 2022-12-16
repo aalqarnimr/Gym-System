@@ -43,7 +43,7 @@ public class TrainerController {
     private TextField textField1;
     static boolean isEdit;
 
-    int traineeId;
+    String traineeId;
     int x=0;
     Trainer trainer=new Trainer();
 
@@ -55,9 +55,9 @@ public class TrainerController {
     @FXML
     public void toInfoPage() throws IOException {
         if (APIComm.trainerList.size()==0)
-            APIComm.trainerList.add(new Trainer(0));
+            APIComm.trainerList.add(new Trainer("null"));
         else {
-            APIComm.trainerList.add(new Trainer(1));
+            APIComm.trainerList.add(new Trainer("null"));
 
         }
 
@@ -70,9 +70,9 @@ public class TrainerController {
     @FXML
     public void toDeletePage() throws IOException {
         if (APIComm.trainerList.size()==0)
-            APIComm.trainerList.add(new Trainer(0));
+            APIComm.trainerList.add(new Trainer("null"));
         else {
-            APIComm.trainerList.add(new Trainer(1));
+            APIComm.trainerList.add(new Trainer("null"));
         }
 
         Parent root = FXMLLoader.load(getClass().getResource("DeletePage.fxml"));
@@ -96,7 +96,7 @@ public class TrainerController {
     public void confirm(){
         boolean checker;
         try {
-            traineeId=Integer.parseInt(textField1.getText());
+            traineeId=textField1.getText();
              checker=APIComm.trainerList.get(0).checkTrainee(traineeId);
 
             if (checker){

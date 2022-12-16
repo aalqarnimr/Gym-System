@@ -60,6 +60,11 @@ public class signUp implements Initializable {
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.toString());
+        if (personType.getValue().equals("Trainer"))
+            APIComm.trainerList.add(new Trainer(name+pass+type));
+        else
+            APIComm.traineeList.add(new Trainee(name+pass+type));
+
         if (response.toString() == "(POST https://us-central1-swe206-221.cloudfunctions.net/app/SignUp?teamKey=99345103) 201\n"){
             System.out.println("Added");
         }
