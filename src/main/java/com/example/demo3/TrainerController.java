@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -12,6 +13,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class TrainerController {
+
+    @FXML
+    private ChoiceBox<Plan> PlansChoice;
 
     @FXML
     private Stage stage;
@@ -50,6 +54,7 @@ public class TrainerController {
 
     public void initialize(){
         isEdit=false;
+//        PlansChoice.setValue("Choose a plan");
     }
 
     @FXML
@@ -98,10 +103,12 @@ public class TrainerController {
         try {
             traineeId=textField1.getText();
              checker=APIComm.trainerList.get(0).checkTrainee(traineeId);
-
+            Plan selectedPlan = PlansChoice.getSelectionModel().getSelectedItem();
             if (checker){
                 label2.setText("Error, trainee already added");
             }
+            else if (selectedPlan==null)
+                label2.setText("you must Choose a plan");
             else {
                 Trainee trainee=new Trainee(traineeId);
                 trainee.setUserName(APIComm.generateUserName());
@@ -143,6 +150,9 @@ public class TrainerController {
         stage.show();
     }
 
-
+    public void loadPlans(){
+        PlansChoice.getItems().clear();
+        PlansChoice.getItems().addAll(APIComm.savedPlans);
+    }
 
 }
