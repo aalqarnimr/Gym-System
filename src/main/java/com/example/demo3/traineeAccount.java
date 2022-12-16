@@ -19,34 +19,51 @@ public class traineeAccount {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private Pane traineePane;
     @FXML
     private Button cancelButton;
     @FXML
     private Button changePicButton;
     @FXML
-    private Label heightLabel;
-    @FXML
-    private TextField heightTextField;
-    @FXML
-    private ImageView imageView;
-    @FXML
     private Button saveButton;
     @FXML
-    private Pane traineePane;
+    private Label heightLabel;
     @FXML
     private Label weightLabel;
     @FXML
+    private ImageView imageView;
+    @FXML
+    private TextField heightTextField;
+    @FXML
     private TextField weightTextField;
+
+    double height, weight;
+    String imagePath;
+    Image sImage;
+
+
 
     @FXML
     void saveChanges(ActionEvent event){
-        String heightF = heightTextField.getText();
-        String weightF = weightTextField.getText();
-        Image imageF = imageView.getImage();
+        try{
+            height = Double.parseDouble(heightTextField.getText());
+            System.out.println(height);
+        }
+        catch(NumberFormatException e){
+            System.out.println("Height can't be text or empty");
+        }
+        try{
+            weight = Double.parseDouble(weightTextField.getText());
+            System.out.println(weight);
+        }
+        catch(NumberFormatException e){
+            System.out.println("Weight can't be text or empty");
+        }
 
-        System.out.println(heightF);
-        System.out.println(weightF);
-        System.out.println(imageF);
+        imagePath = imageView.getImage().getUrl();
+        System.out.println(imagePath);
     }
 
     @FXML

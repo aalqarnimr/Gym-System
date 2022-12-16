@@ -38,7 +38,6 @@ public class signUp implements Initializable {
     private TextField passwordField;
     public static String name, pass, type;
 
-
     public void backToWlc(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
