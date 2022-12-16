@@ -6,7 +6,7 @@ import java.util.List;
 public class Trainer extends Member{
 
     String specialty;
-    List<Trainee> traineeList;
+    public List<Trainee> traineeList;
     String trainerID;
 
     public Trainer(){

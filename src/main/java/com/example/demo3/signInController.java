@@ -88,6 +88,7 @@ public class signInController {
             if((name+pass+"trainer").equals(APIComm.trainerList.get(i).trainerID)){
                 int x = i;
                 Trainer x1 = APIComm.trainerList.get(i);
+                Account.setCurrentUser(x1);
                 Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
                 Stage stage = (Stage) signInButton.getScene().getWindow();
                 Scene scene= new Scene(root);

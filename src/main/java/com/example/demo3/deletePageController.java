@@ -20,7 +20,7 @@ public class deletePageController implements Initializable {
     private ListView<Trainee> listView;
     @FXML
     private Label label3;
-    Trainee[] traineesList=new Trainee[APIComm.trainerList.get(0).traineeList.size()];
+    Trainee[] traineesList;
     @FXML
     private Button mainPageButton;
     @FXML
@@ -30,12 +30,15 @@ public class deletePageController implements Initializable {
 
 
     String[] food ={"1","2","3"};
-    Trainee curr;
+    Trainer curr;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        curr = (Trainer) Account.getCurrentUser();
+        traineesList = new Trainee[curr.getTraineeList().size()];
+        traineesList = curr.getTraineeList().toArray(traineesList);
         for (int i=0; i< traineesList.length; i++){
-            traineesList[i]=APIComm.trainerList.get(0).traineeList.get(i);
+            traineesList[i]=curr.traineeList.get(i);
         }
         listView.getItems().addAll(traineesList);
     }

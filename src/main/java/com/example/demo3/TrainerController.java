@@ -51,11 +51,12 @@ public class TrainerController {
 
     String traineeId;
     int x=0;
-    Trainer trainer=new Trainer();
+    Trainer curr;
 
 
     public void initialize(){
         isEdit=false;
+        curr = (Trainer) Account.getCurrentUser();
 //        PlansChoice.setValue("Choose a plan");
     }
 
@@ -123,7 +124,8 @@ public class TrainerController {
                 Trainee trainee=new Trainee(traineeId);
                 trainee.setUserName(APIComm.generateUserName());
                 trainee.setPassWord(APIComm.generatePassword());
-                APIComm.trainerList.get(0).addTrainee(trainee);
+                trainee.plan=selectedPlan;
+                curr.addTrainee(trainee);
                 label2.setText("Trainee has been added successfully");
 
             }
