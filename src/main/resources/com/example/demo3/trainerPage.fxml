@@ -25,7 +25,7 @@
       <TextField fx:id="weightTextField" layoutX="106.0" layoutY="320.0" promptText="weight here" />
       <TextField fx:id="specialtyTextField" layoutX="106.0" layoutY="410.0" promptText="specialty here" />
       <Button fx:id="saveButton" layoutX="185.0" layoutY="526.0" mnemonicParsing="false" onAction="#saveChanges" text="Save" />
-      <Button fx:id="cancelButton" layoutX="125.0" layoutY="526.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="cancelButton" layoutX="125.0" layoutY="526.0" mnemonicParsing="false" onAction="#toMainPage" text="Cancel" />
       <Label fx:id="specialtyLabel" layoutX="105.0" layoutY="393.0" text="Specialty" />
    </children>
 </Pane>
