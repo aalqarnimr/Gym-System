@@ -33,23 +33,10 @@ public class APIComm implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
     public static void getInfo() throws IOException {
-        FileInputStream fstream = new FileInputStream("PlansDatabase.bin");
-        try {
-            ObjectInputStream ostream = new ObjectInputStream(fstream);
-            while (true) {
-                Object obj;
-                try {
-                    obj = ostream.readObject();
-                    savedPlans.add((Plan) obj);
-                } catch (EOFException e) {
-                    break;
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        } finally {
-            fstream.close();
-        }
+        workouts = new Workout[]{new Workout("push up"), new Workout("pull up"), new Workout("Lunges"),new Workout("Dumbbell rows"), new Workout("Chest Press"),new Workout("Leg Press")};
+        loadPlans();
+
+
     }
     public static String generateUserName(){
         String userName;
@@ -80,18 +67,38 @@ public class APIComm implements Initializable {
         }
         return password;
     }
-    public static void WriteObjectToFile(Object serObj) {
+    public static void WriteObjectToFile(ObservableList<Plan> plansList) {
 
         try {
 
-            FileOutputStream fileOut = new FileOutputStream("PlansDatabase.bin");
+            FileOutputStream fileOut = new FileOutputStream("plansDataBase.bin");
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(serObj);
+            objectOut.writeObject(new ArrayList<Plan>(plansList));
             objectOut.close();
-            System.out.println("The Object  was succesfully written to a file");
+            System.out.println("The Plans was successfully written to a file");
 
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public static void loadPlans() throws IOException {
+        FileInputStream fstream = new FileInputStream("plansDataBase.bin");
+        try {
+            ObjectInputStream ostream = new ObjectInputStream(fstream);
+            while (true) {
+                Object obj;
+                try {
+                    obj = ostream.readObject();
+                    savedPlans.addAll((Collection<? extends Plan>) obj);
+                } catch (EOFException e) {
+                    break;
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }finally {
+            fstream.close();
         }
     }
 }

@@ -168,6 +168,7 @@ public class PlanPageController {
         if (!plan.isCompleted())
             feedbackText.setText("error: the plan is not completed");
         else if (MainPageController.isEdit){
+            APIComm.WriteObjectToFile(APIComm.savedPlans);
             homePage();
         }
         else{
@@ -180,7 +181,9 @@ public class PlanPageController {
             if (planName.isPresent()){
                 plan.setName(planName.get());
                 Trainer.savePlan(plan);
+                APIComm.WriteObjectToFile(APIComm.savedPlans);
                 homePage();
+
             }
             else {
                 feedbackText.setText("error: enter a name");
