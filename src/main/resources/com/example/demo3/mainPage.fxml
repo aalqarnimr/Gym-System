@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.TrainerController">
+   <children>
+      <Button fx:id="addTraineeButton" cache="true" layoutX="125.0" layoutY="173.0" mnemonicParsing="false" onAction="#toInfoPage" prefHeight="70.0" prefWidth="110.0" text="Add Trainee">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Button>
+      <Label fx:id="label" alignment="CENTER" layoutX="-1.0" layoutY="31.0" prefHeight="30.0" prefWidth="360.0" text="Main Page">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect></Label>
+      <Button fx:id="deleteTraineeButton" cache="true" layoutX="126.0" layoutY="372.0" mnemonicParsing="false" onAction="#toDeletePage" prefHeight="70.0" prefWidth="110.0" text="Delete Trainee">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+   </children>
+   <effect>
+      <InnerShadow height="150.0" radius="74.5" width="150.0">
+         <input>
+            <InnerShadow />
+         </input>
+         <color>
+            <Color red="0.25462964177131653" green="0.3640756905078888" blue="0.7236841917037964" />
+         </color>
+      </InnerShadow>
+   </effect>
+</AnchorPane>

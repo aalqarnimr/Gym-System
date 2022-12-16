@@ -25,6 +25,8 @@ public class APIComm implements Initializable {
     public static void addToDataBase(Workout w){
         avaliableWorkouts.add(w);
     }
+    static List<Trainer> trainerList=new ArrayList<>();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -75,5 +77,34 @@ public class APIComm implements Initializable {
         }
         strongLifts.setName("Strong Lifts");
         savedPlans.add(strongLifts);
+    }
+    public static String generateUserName(){
+        String userName;
+        int x=(int)(Math.random()*100000);
+
+        userName="Admin "+x;
+        return userName;
+    }
+    public static String generatePassword(){
+        int counter=0;
+        String password="";
+        while (counter<10) {
+            int random = (int) (Math.random() * 62);
+
+            if (random <= 9) {
+                int ascii = random + 48;
+                password = password + (char) ascii;
+            } else if (random <= 35) {
+                int ascii = random + 55;
+                password = password + (char) ascii;
+
+            } else {
+                int ascii = random + 61;
+                password = password + (char) ascii;
+
+            }
+            counter++;
+        }
+        return password;
     }
 }
