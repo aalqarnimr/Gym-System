@@ -79,6 +79,14 @@ public class signInController {
         System.out.println(response.body());
         messageLabel.setText(response.body());
 
+        if (name+pass+"trainee" == "id in trainee"){
+
+
+        } else if(name+pass+"trainer" == "id in trainer"){
+
+
+        }
+
     }
     public static void main(String[] args) throws IOException, InterruptedException {
 

@@ -43,6 +43,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="messageLabel" layoutX="128.0" layoutY="348.0" prefHeight="17.0" prefWidth="104.0" />
+      <Label fx:id="messageLabel" layoutX="32.0" layoutY="348.0" prefHeight="48.0" prefWidth="289.0" textAlignment="CENTER" wrapText="true" />
    </children>
 </Pane>
