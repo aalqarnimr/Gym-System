@@ -51,6 +51,8 @@ public class signUp implements Initializable {
         pass = passwordField.getText();
         type = personType.getValue();
 
+        String id = name+pass+type;
+
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://us-central1-swe206-221.cloudfunctions.net/app/SignUp?teamKey=99345103"))
                 .header("content-type", "application/json")
