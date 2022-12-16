@@ -68,12 +68,16 @@ public class traineeAccount {
 
     @FXML
     void setChangePicButton(ActionEvent event){
+        try{
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
                                         new FileChooser.ExtensionFilter("PNG", "*.png"));
         File file = fc.showOpenDialog(stage);
         Image image = new Image(String.valueOf(file));
-        imageView.setImage(image);
+        imageView.setImage(image);}
+        catch(IllegalArgumentException e){
+            System.out.println("no image selected");
+        }
     }
 
 

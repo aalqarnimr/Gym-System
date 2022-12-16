@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -24,9 +21,10 @@ public class signInController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
     @FXML
     private CheckBox checkBox;
+    @FXML
+    private Label messageLabel;
     @FXML
     private TextField usernameText;
     @FXML
@@ -79,9 +77,9 @@ public class signInController {
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
+        messageLabel.setText(response.body());
 
     }
-
     public static void main(String[] args) throws IOException, InterruptedException {
 
     }
