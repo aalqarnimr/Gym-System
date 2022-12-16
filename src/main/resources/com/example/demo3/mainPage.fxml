@@ -68,6 +68,17 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
+      <Button fx:id="logoutButton" cache="true" layoutX="236.0" layoutY="537.0" mnemonicParsing="false" onAction="#backToWlc" prefHeight="38.0" prefWidth="110.0" text="Logout">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
    </children>
    <effect>
       <InnerShadow height="150.0" radius="74.5" width="150.0">

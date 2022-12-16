@@ -9,6 +9,8 @@ import java.io.IOException;
 public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        APIComm.trainerList.add(new Trainer("qaz123trainer"));
+        APIComm.trainerList.add(new Trainer("qwe123trainer"));
         APIComm.getInfo();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("signIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 360, 600);

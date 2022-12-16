@@ -32,7 +32,7 @@
             <Font size="11.0" />
          </font>
       </CheckBox>
-      <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
+      <Button fx:id="signInButton" layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
          </font>

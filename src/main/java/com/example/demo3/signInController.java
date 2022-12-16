@@ -35,9 +35,12 @@ public class signInController {
 
     @FXML
     private ToggleButton passToggle;
+    @FXML
+    private Button signInButton;
 
     public static String pass;
     public static String name;
+
 
     @FXML
     void backToWlc(ActionEvent event) throws IOException {
@@ -79,12 +82,18 @@ public class signInController {
         System.out.println(response.body());
         messageLabel.setText(response.body());
 
-        if (name+pass+"trainee" == "id in trainee"){
-
-
-        } else if(name+pass+"trainer" == "id in trainer"){
-
-
+        for (int i = 0; i<APIComm.trainerList.size();i++){
+            System.out.println(name+pass+"trainer");
+            System.out.println(APIComm.trainerList.get(i).trainerID);
+            if((name+pass+"trainer").equals(APIComm.trainerList.get(i).trainerID)){
+                int x = i;
+                Trainer x1 = APIComm.trainerList.get(i);
+                Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+                Stage stage = (Stage) signInButton.getScene().getWindow();
+                Scene scene= new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
 
     }

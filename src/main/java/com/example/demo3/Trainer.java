@@ -20,7 +20,7 @@ public class Trainer extends Member{
         super(name,height,weight,userName,passWord);
         this.specialty=specialty;
         this.traineeList=new LinkedList<>();
-        this.trainerID= this.trainerID;
+        this.trainerID= trainerID;
     }
 
     public String getSpecialty(){
