@@ -7,20 +7,20 @@ public class Trainer extends Member{
 
     String specialty;
     List<Trainee> traineeList;
-    int trainerNumber;
+    String trainerID;
 
     public Trainer(){
-        this("null",0,0,"null","null","null",0);
+        this("null",0,0,"null","null","null","null");
     }
-    public Trainer(int trainerNumber){
-        this("null",0,0,"null","null","null",trainerNumber);
+    public Trainer(String trainerID){
+        this("null",0,0,"null","null","null",trainerID);
     }
 
-    public Trainer(String name,double height,double weight,String userName,String passWord,String specialty,int trainerNumber){
+    public Trainer(String name,double height,double weight,String userName,String passWord,String specialty,String trainerID){
         super(name,height,weight,userName,passWord);
         this.specialty=specialty;
         this.traineeList=new LinkedList<>();
-        this.trainerNumber=trainerNumber;
+        this.trainerID= this.trainerID;
     }
 
     public String getSpecialty(){
@@ -52,11 +52,11 @@ public class Trainer extends Member{
     public void addTrainee(Trainee trainee){
         this.traineeList.add(trainee);
     }
-    public boolean checkTrainee(int id){
+    public boolean checkTrainee(String id){
         boolean checker =false;
 
         for (int i=0; i<this.traineeList.size();i++){
-            if (id==this.traineeList.get(i).getId()){
+            if (trainerID==this.traineeList.get(i).getId()){
                 checker=true;
                 break;
             }

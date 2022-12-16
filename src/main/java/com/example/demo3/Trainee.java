@@ -2,17 +2,18 @@ package com.example.demo3;
 
 public class Trainee extends Member {
     Plan plan;
-    int id;
+    String traineeID;
 
 
-    public Trainee(int id){
-        this("null",0,0,"null","null",id,null);
+    public Trainee(String traineeID){
+        this("null",0,0,"null","null",traineeID,null);
     }
-    public Trainee(String name,double height,double weight,String userName,String passWord,int id,Plan plan){
+    public Trainee(String name,double height,double weight,String userName,String passWord,String traineeID,Plan plan){
         super(name,height,weight,userName,passWord);
-        this.id=id;
+        this.traineeID=traineeID;
         this.plan=plan;
     }
+
 
 
 
@@ -23,13 +24,13 @@ public class Trainee extends Member {
     public void setPlan(Plan plan){
         this.plan = plan;
     }
-    public int getId(){
-        return this.id;
+    public String getId(){
+        return this.traineeID;
     }
-    public void setId(int id){
-        this.id = id;
+    public void setId(String traineeID){
+        this.traineeID = traineeID;
     }
     public String toString(){
-        return "Name: "+this.name+"   ID: "+this.id;
+        return "Name: "+this.name+"   ID: "+this.traineeID;
     }
 }

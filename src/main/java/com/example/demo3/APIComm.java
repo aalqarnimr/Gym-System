@@ -27,6 +27,7 @@ public class APIComm implements Initializable {
         avaliableWorkouts.add(w);
     }
     static List<Trainer> trainerList=new ArrayList<>();
+    static List<Trainee> traineeList=new ArrayList<>();
 
 
     @Override
