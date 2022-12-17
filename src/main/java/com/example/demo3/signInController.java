@@ -67,6 +67,7 @@ public class signInController {
 
     @FXML
     void signInMessage(ActionEvent event) throws IOException, InterruptedException {
+
         if (checkBox.isSelected()){
             pass = passTextField.getText();
         }else {
@@ -83,10 +84,15 @@ public class signInController {
         messageLabel.setText(response.body());
         String s = messageLabel.getText();
         if (((name+pass+s).endsWith("trainer"))){
+            System.out.println("1");
             for (int i = 0; i<APIComm.trainerList.size();i++){
-//            System.out.println(name+pass+"trainer");
-//            System.out.println(APIComm.trainerList.get(i).trainerID);
+                System.out.println("2");
+
+                System.out.println(name+pass+"trainer");
+                System.out.println(APIComm.trainerList.get(i).trainerID);
                 if((name+pass+"trainer").equals(APIComm.trainerList.get(i).trainerID)){
+                    System.out.println("3");
+
                     int x = i;
                     Trainer x1 = APIComm.trainerList.get(i);
                     Account.setCurrentUser(x1);
@@ -100,18 +106,32 @@ public class signInController {
             }
         }
         else if (((name+pass+s).endsWith("trainee"))){
+            System.out.println("4");
+            System.out.println(APIComm.traineeList.size()+"-AAA");
+
             for (int i = 0; i<APIComm.traineeList.size();i++){
+                System.out.println("5");
+
 //            System.out.println(name+pass+"trainer");
 //            System.out.println(APIComm.trainerList.get(i).trainerID);
                 if((name+pass+"trainee").equals(APIComm.traineeList.get(i).traineeID)){
+                    System.out.println("6");
+
                     int x = i;
                     Trainee trainee = APIComm.traineeList.get(i);
                     Account.setCurrentUser(trainee);
-                    Parent root = FXMLLoader.load(getClass().getResource("TraineeMainPage.fxml"));
-                    Stage stage = (Stage) signInButton.getScene().getWindow();
-                    Scene scene= new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
+                    try {
+
+
+                        Parent root = FXMLLoader.load(getClass().getResource("TraineeMainPage.fxml"));
+                        Stage stage = (Stage) signInButton.getScene().getWindow();
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+                    }
                 }
 
             }
@@ -120,7 +140,5 @@ public class signInController {
 
 
     }
-    public static void main(String[] args) throws IOException, InterruptedException {
 
-    }
 }

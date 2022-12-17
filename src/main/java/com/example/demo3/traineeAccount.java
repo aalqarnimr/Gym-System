@@ -84,7 +84,7 @@ public class traineeAccount {
     }
 
     public void toMainPage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TraineeMainPage.fxml"));
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         Scene scene= new Scene(root);
         stage.setScene(scene);

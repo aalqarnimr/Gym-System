@@ -60,10 +60,15 @@ public class signUp implements Initializable {
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.toString());
-        if (personType.getValue().equals("trainer"))
-            APIComm.trainerList.add(new Trainer(name+pass+type));
-        else
-            APIComm.traineeList.add(new Trainee(name+pass+type));
+        if (personType.getValue().equals("trainer")) {
+            APIComm.trainerList.add(new Trainer(name + pass + type));
+            APIComm.WriteTrainerToFile(APIComm.trainerList);
+        }
+        else {
+            APIComm.traineeList.add(new Trainee(name + pass + type));
+            APIComm.WriteTraineeToFile(APIComm.traineeList);
+        }
+
 
     }
 
