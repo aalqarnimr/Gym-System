@@ -59,6 +59,7 @@ public class trainerAccount {
         if (Account.currentMember instanceof Trainer){
             specialtyTextField.setText(""+((Trainer) Account.currentMember).getSpecialty());
         }
+        imageView.setImage(new Image(Account.currentMember.getImgPath()));
 
 
 //        PlansChoice.setValue("Choose a plan");
