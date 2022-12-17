@@ -26,9 +26,9 @@ public class APIComm implements Initializable {
     public static void addToDataBase(Workout w){
         avaliableWorkouts.add(w);
     }
-    static List<Trainer> trainerList=new ArrayList<>();
+    static ArrayList<Trainer> trainerList=new ArrayList<Trainer>();
 
-    static List<Trainee> traineeList=new ArrayList<>();
+    static ArrayList<Trainee> traineeList=new ArrayList<>();
 
 
     @Override
@@ -37,8 +37,8 @@ public class APIComm implements Initializable {
     public static void getInfo() throws IOException {
         workouts = new Workout[]{new Workout("push up"), new Workout("pull up"), new Workout("Lunges"),new Workout("Dumbbell rows"), new Workout("Chest Press"),new Workout("Leg Press")};
         loadPlans();
-
-
+        loadTrainers();
+        loadTrainee();
     }
     public static String generateUserName(){
         String userName;
@@ -72,7 +72,6 @@ public class APIComm implements Initializable {
     public static void WriteObjectToFile(ObservableList<Plan> plansList) {
 
         try {
-
             FileOutputStream fileOut = new FileOutputStream("plansDataBase.bin");
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(new ArrayList<Plan>(plansList));
@@ -93,6 +92,74 @@ public class APIComm implements Initializable {
                 try {
                     obj = ostream.readObject();
                     savedPlans.addAll((Collection<? extends Plan>) obj);
+                } catch (EOFException e) {
+                    break;
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }finally {
+            fstream.close();
+        }
+    }
+
+    public static void WriteTrainerToFile(ArrayList<Trainer> arr) {
+
+        try {
+            FileOutputStream fileOut = new FileOutputStream("TrainersDataBase.bin");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(arr);
+            objectOut.close();
+            System.out.println("The Plans was successfully written to a file");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void loadTrainers() throws IOException {
+        FileInputStream fstream = new FileInputStream("TrainersDataBase.bin");
+        try {
+            ObjectInputStream ostream = new ObjectInputStream(fstream);
+            while (true) {
+                Object obj;
+                try {
+                    obj = ostream.readObject();
+                    trainerList.addAll((Collection<? extends Trainer>) obj);
+                } catch (EOFException e) {
+                    break;
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }finally {
+            fstream.close();
+        }
+    }
+
+    public static void WriteTraineeToFile(ArrayList<Trainee> arr) {
+
+        try {
+            FileOutputStream fileOut = new FileOutputStream("TraineesDataBase.bin");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(arr);
+            objectOut.close();
+            System.out.println("The Trainee was successfully written to a file");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void loadTrainee() throws IOException {
+        FileInputStream fstream = new FileInputStream("TraineesDataBase.bin");
+        try {
+            ObjectInputStream ostream = new ObjectInputStream(fstream);
+            while (true) {
+                Object obj;
+                try {
+                    obj = ostream.readObject();
+                    trainerList.addAll((Collection<? extends Trainer>) obj);
                 } catch (EOFException e) {
                     break;
                 } catch (ClassNotFoundException e) {

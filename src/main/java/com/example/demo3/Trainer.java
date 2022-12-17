@@ -1,12 +1,14 @@
 package com.example.demo3;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Trainer extends Member{
+public class Trainer extends Member implements Serializable {
 
     String specialty;
-    public List<Trainee> traineeList;
+    public ArrayList<Trainee> traineeList;
     String trainerID;
 
     public Trainer(){
@@ -19,7 +21,7 @@ public class Trainer extends Member{
     public Trainer(String name,double height,double weight,String userName,String passWord,String specialty,String trainerID){
         super(name,height,weight,userName,passWord);
         this.specialty=specialty;
-        this.traineeList=new LinkedList<>();
+        this.traineeList= new ArrayList<>();
         this.trainerID= trainerID;
     }
 
@@ -32,7 +34,7 @@ public class Trainer extends Member{
     public List<Trainee> getTraineeList(){
         return traineeList;
     }
-    public void setTraineeList(List<Trainee> traineeList){
+    public void setTraineeList(ArrayList<Trainee> traineeList){
         this.traineeList=traineeList;
     }
 
@@ -62,6 +64,10 @@ public class Trainer extends Member{
             }
         }
         return checker;
+    }
+
+    public String toString(){
+        return name;
     }
 
 

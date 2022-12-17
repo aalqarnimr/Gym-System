@@ -1,6 +1,8 @@
 package com.example.demo3;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
     String name;
     double height;
     double weight;

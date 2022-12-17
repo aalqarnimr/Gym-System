@@ -1,9 +1,17 @@
 package com.example.demo3;
 
-public class Trainee extends Member {
+import java.io.Serializable;
+
+public class Trainee extends Member implements Serializable {
     Plan plan;
     String traineeID;
 
+
+
+
+    public Trainee(){
+        this("null",0,0,"null","null","null",null);
+    }
 
     public Trainee(String traineeID){
         this("null",0,0,"null","null",traineeID,null);
@@ -31,6 +39,6 @@ public class Trainee extends Member {
         this.traineeID = traineeID;
     }
     public String toString(){
-        return "Name: "+this.name+"   ID: "+this.traineeID;
+        return "Name: "+super.name+"   ID: "+this.traineeID;
     }
 }

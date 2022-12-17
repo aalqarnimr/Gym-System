@@ -3,6 +3,7 @@ package com.example.demo3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,12 +15,6 @@ import java.io.IOException;
 public class TraineeController {
 
     @FXML
-    private Button addTraineeButton;
-
-    @FXML
-    private Button deleteTraineeButton;
-
-    @FXML
     private Label label;
 
     @FXML
@@ -29,6 +24,22 @@ public class TraineeController {
         Parent root = FXMLLoader.load(getClass().getResource("traineePage.fxml"));
         Stage stage = (Stage) label.getScene().getWindow();
         Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void toShowPlan() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("showPlan-view.fxml"));
+        Stage stage = (Stage) label.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void backToWlc(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
