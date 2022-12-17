@@ -9,6 +9,8 @@ public class Member implements Serializable {
     String userName;
     String passWord;
 
+    private static final long serialVersionUID = 6529685098267757422L;
+
     public Member(String name,double height,double weight,String userName,String passWord){
         this.name=name;
         this.height=height;

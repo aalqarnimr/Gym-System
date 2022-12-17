@@ -8,6 +8,8 @@ public class Plan implements Serializable {
     Session[] sessions=new Session[7];
     int[] busyDays;
 
+    private static final long serialVersionUID = 6529685098267757441L;
+
     private String name="unnamed";
 
     public Plan(){

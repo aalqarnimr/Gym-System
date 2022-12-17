@@ -6,6 +6,7 @@ public class Workout implements Serializable {
     private String name;
     private String targetedMuscles;
     private int targetedSets;
+    private static final long serialVersionUID = 6529685098267757690L;
 
     //For progress
     double goalWeight;

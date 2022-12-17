@@ -110,7 +110,7 @@ public class APIComm implements Initializable {
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(arr);
             objectOut.close();
-            System.out.println("The Plans was successfully written to a file");
+            System.out.println("The Trainer was successfully written to a file");
 
         } catch (Exception ex) {
             ex.printStackTrace();

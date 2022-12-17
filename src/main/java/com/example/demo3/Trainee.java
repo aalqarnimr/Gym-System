@@ -8,7 +8,7 @@ public class Trainee extends Member implements Serializable {
 
 
 
-
+    private static final long serialVersionUID = 6529685091167757422L;
     public Trainee(){
         this("null",0,0,"null","null","null",null);
     }
