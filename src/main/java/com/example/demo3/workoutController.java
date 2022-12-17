@@ -36,7 +36,7 @@ public class workoutController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        file = new File("C:\\Users\\user\\Desktop\\Zoom Meeting 2020-10-07 18-46-51.mp4");
+        file = new File("C:\\Users\\user\\Desktop\\Zoom.mp4");
             media = new Media(file.toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             mediaView.setMediaPlayer(mediaPlayer);
