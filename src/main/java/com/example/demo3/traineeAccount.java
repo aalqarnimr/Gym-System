@@ -36,6 +36,8 @@ public class traineeAccount {
     @FXML
     private Label weightLabel;
     @FXML
+    private Label hmessageLabel,wmessageLabel;
+    @FXML
     private ImageView imageView;
     @FXML
     private TextField heightTextField;
@@ -52,17 +54,21 @@ public class traineeAccount {
     void saveChanges(){
         try{
             height = Double.parseDouble(heightTextField.getText());
+            Account.currentMember.height=height;
             System.out.println(height);
+            hmessageLabel.setText("height recorded");
         }
         catch(NumberFormatException e){
-            System.out.println("Height can't be text or empty");
+            hmessageLabel.setText("Height can't be text or empty");
         }
         try{
             weight = Double.parseDouble(weightTextField.getText());
+            Account.currentMember.weight = weight;
             System.out.println(weight);
+            wmessageLabel.setText("Weight recorded");
         }
         catch(NumberFormatException e){
-            System.out.println("Weight can't be text or empty");
+            wmessageLabel.setText("Weight can't be text or empty");
         }
 
         imagePath = imageView.getImage().getUrl();
@@ -84,18 +90,11 @@ public class traineeAccount {
     }
 
     public void toMainPage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TraineeMainPage.fxml"));
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         Scene scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
-//        root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
     }
-
-
 
 }
