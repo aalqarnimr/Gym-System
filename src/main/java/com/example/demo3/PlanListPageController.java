@@ -27,7 +27,7 @@ public class PlanListPageController {
     public void initialize(){
         selectedPlan=null;
         plansListView.getItems().addAll(APIComm.getPlans());
-        MainPageController.isEdit=true;
+        TrainerController.isEdit=true;
     }
     public void setPlanToEdit() throws IOException {
         selectedPlan= (Plan) plansListView.getSelectionModel().getSelectedItem();
@@ -43,10 +43,24 @@ public class PlanListPageController {
 
     }
     public void homePage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("PlanList-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         Stage stage = (Stage) feedText.getScene().getWindow();
         Scene scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    public void deletePlan() throws IOException {
+        selectedPlan= (Plan) plansListView.getSelectionModel().getSelectedItem();
+        if (selectedPlan==null)
+            feedText.setText("error: user didn't choose plan");
+        else {
+            APIComm.savedPlans.remove(selectedPlan);
+            APIComm.WriteObjectToFile(APIComm.savedPlans);
+            Parent root = FXMLLoader.load(getClass().getResource("PlanList-view.fxml"));
+            Stage stage = (Stage) EditPlanButton.getScene().getWindow();
+            Scene scene= new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 }

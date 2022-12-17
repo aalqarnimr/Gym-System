@@ -87,7 +87,7 @@ public class PlanPageController {
 
 
     public void initialize(){
-        if (!MainPageController.isEdit)
+        if (!TrainerController.isEdit)
             plan = Trainer.createPlan();
         else {
             pageNameText.setText("Modify Plan");
@@ -158,7 +158,7 @@ public class PlanPageController {
         }
     }
     public void homePage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("PlanList-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         Stage stage = (Stage) savePlanButton.getScene().getWindow();
         Scene scene= new Scene(root);
         stage.setScene(scene);
@@ -168,6 +168,7 @@ public class PlanPageController {
         if (!plan.isCompleted())
             feedbackText.setText("error: the plan is not completed");
         else if (MainPageController.isEdit){
+            APIComm.WriteObjectToFile(APIComm.savedPlans);
             homePage();
         }
         else{
@@ -180,7 +181,9 @@ public class PlanPageController {
             if (planName.isPresent()){
                 plan.setName(planName.get());
                 Trainer.savePlan(plan);
+                APIComm.WriteObjectToFile(APIComm.savedPlans);
                 homePage();
+
             }
             else {
                 feedbackText.setText("error: enter a name");

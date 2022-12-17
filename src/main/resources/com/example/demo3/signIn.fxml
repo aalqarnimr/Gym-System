@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.signInController">
+<Pane fx:id="signInPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.signInController">
    <children>
       <Label layoutX="110.0" layoutY="14.0" text="SIGN IN">
          <font>
@@ -32,16 +32,17 @@
             <Font size="11.0" />
          </font>
       </CheckBox>
-      <Button layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
+      <Button fx:id="signInButton" layoutX="148.0" layoutY="437.0" mnemonicParsing="false" onAction="#signInMessage" text="Sign In" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
       <TextField fx:id="passTextField" layoutX="106.0" layoutY="288.0" visible="false" />
-      <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
+      <Button fx:id="backButton" layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
+      <Label fx:id="messageLabel" layoutX="32.0" layoutY="348.0" prefHeight="48.0" prefWidth="289.0" textAlignment="CENTER" wrapText="true" />
    </children>
 </Pane>

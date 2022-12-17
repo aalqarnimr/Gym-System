@@ -18,11 +18,10 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
-public class traineeAccount {
+public class trainerAccount {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
     @FXML
     private Pane traineePane;
     @FXML
@@ -34,6 +33,8 @@ public class traineeAccount {
     @FXML
     private Label heightLabel;
     @FXML
+    private Label specialtyLabel;
+    @FXML
     private Label weightLabel;
     @FXML
     private ImageView imageView;
@@ -41,57 +42,59 @@ public class traineeAccount {
     private TextField heightTextField;
     @FXML
     private TextField weightTextField;
+    @FXML
+    private TextField specialtyTextField;
 
     double height, weight;
-    String imagePath;
+    String specialty, imagePath;
     Image sImage;
 
-
-
     @FXML
-    void saveChanges(){
+    void saveChanges(ActionEvent event) {
         try{
             height = Double.parseDouble(heightTextField.getText());
             System.out.println(height);
         }
-        catch(NumberFormatException e){
-            System.out.println("Height can't be text or empty");
+         catch(NumberFormatException e){
+                System.out.println("Height can't be text or empty");
         }
         try{
             weight = Double.parseDouble(weightTextField.getText());
             System.out.println(weight);
         }
-        catch(NumberFormatException e){
-            System.out.println("Weight can't be text or empty");
+         catch(NumberFormatException e){
+                System.out.println("Weight can't be text or empty");
         }
 
+
+        specialty = specialtyTextField.getText();
+//        sImage = imageView.getImage();
         imagePath = imageView.getImage().getUrl();
+
+
+
+        System.out.println(specialty);
         System.out.println(imagePath);
+
     }
 
     @FXML
-    void setChangePicButton(){
-        try{
+    void setChangePicButton(ActionEvent event) {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
-                                        new FileChooser.ExtensionFilter("PNG", "*.png"));
+                new FileChooser.ExtensionFilter("PNG", "*.png"));
         File file = fc.showOpenDialog(stage);
         Image image = new Image(String.valueOf(file));
-        imageView.setImage(image);}
-        catch(IllegalArgumentException e){
-            System.out.println("no image selected");
-        }
+        imageView.setImage(image);
     }
 
-    public void toMainPage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        Scene scene= new Scene(root);
+    public void toMainPage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
-
 
 
 }

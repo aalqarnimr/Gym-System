@@ -44,5 +44,13 @@
             <Reflection />
          </effect></Button>
       <Text fx:id="feedText" layoutX="71.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="218.13665771484375" />
+      <Button fx:id="EditPlanButton1" layoutX="14.0" layoutY="553.0" mnemonicParsing="false" onAction="#deletePlan" prefHeight="31.0" prefWidth="70.0" style="-fx-background-radius: 10; -fx-background-color: #228dff;" text="Delete" textFill="WHITE" textOverrun="CLIP">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

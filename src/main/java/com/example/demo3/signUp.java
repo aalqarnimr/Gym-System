@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,14 +24,13 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class signUp implements Initializable {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Label label;
     @FXML
     private ChoiceBox<String> personType;
+    @FXML
+    private Button backButton;
     private String[] personList = {"trainer", "trainee"};
     @FXML
     private TextField usernametext;
@@ -38,11 +38,10 @@ public class signUp implements Initializable {
     private TextField passwordField;
     public static String name, pass, type;
 
-
-    public void backToWlc(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+    public void backToWlc() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        Scene scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -52,6 +51,8 @@ public class signUp implements Initializable {
         pass = passwordField.getText();
         type = personType.getValue();
 
+        String id = name+pass+type;
+
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://us-central1-swe206-221.cloudfunctions.net/app/SignUp?teamKey=99345103"))
                 .header("content-type", "application/json")
@@ -59,9 +60,11 @@ public class signUp implements Initializable {
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.toString());
-        if (response.toString() == "(POST https://us-central1-swe206-221.cloudfunctions.net/app/SignUp?teamKey=99345103) 201\n"){
-            System.out.println("Added");
-        }
+        if (personType.getValue().equals("trainer"))
+            APIComm.trainerList.add(new Trainer(name+pass+type));
+        else
+            APIComm.traineeList.add(new Trainee(name+pass+type));
+
     }
 
     @Override
