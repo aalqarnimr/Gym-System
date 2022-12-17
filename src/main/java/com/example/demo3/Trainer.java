@@ -14,10 +14,10 @@ public class Trainer extends Member implements Serializable {
 
 
     public Trainer(){
-        this("null",0,0,"null","null","null","null","C:\\Users\\Admin\\Gym-System4\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
+        this("null",0,0,"null","null","null","null",String.valueOf(Trainee.class.getResource("profile.jpg")));
     }
     public Trainer(String trainerID){
-        this("null",0,0,"null","null","null",trainerID,"C:\\Users\\Admin\\Gym-System4\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
+        this("null",0,0,"null","null","null",trainerID,String.valueOf(Trainee.class.getResource("profile.jpg")));
     }
 
     public Trainer(String name,double height,double weight,String userName,String passWord,String specialty,String trainerID,String imgPath){
