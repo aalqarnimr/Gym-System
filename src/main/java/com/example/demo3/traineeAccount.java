@@ -49,12 +49,20 @@ public class traineeAccount {
     Image sImage;
 
 
+    public void initialize(){
+
+        heightTextField.setText(""+Account.currentMember.getHeight());
+        weightTextField.setText(""+Account.currentMember.getWeight());
+        System.out.println(Account.currentMember.getImgPath());
+        imageView.setImage(new Image(Account.currentMember.getImgPath()));
+    }
 
     @FXML
     void saveChanges(){
         try{
             height = Double.parseDouble(heightTextField.getText());
-            Account.currentMember.height=height;
+            Account.currentMember.setHeight(height);
+            APIComm.WriteTraineeToFile(APIComm.traineeList);
             System.out.println(height);
             hmessageLabel.setText("height recorded");
         }
@@ -63,7 +71,8 @@ public class traineeAccount {
         }
         try{
             weight = Double.parseDouble(weightTextField.getText());
-            Account.currentMember.weight = weight;
+            Account.currentMember.setWeight(weight);
+            APIComm.WriteTraineeToFile(APIComm.traineeList);
             System.out.println(weight);
             wmessageLabel.setText("Weight recorded");
         }
@@ -71,8 +80,19 @@ public class traineeAccount {
             wmessageLabel.setText("Weight can't be text or empty");
         }
 
-        imagePath = imageView.getImage().getUrl();
-        System.out.println(imagePath);
+        try{
+
+            imagePath = imageView.getImage().getUrl();
+            Account.currentMember.setImgPath(imagePath);
+            APIComm.WriteTraineeToFile(APIComm.traineeList);
+            System.out.println(imagePath);
+        }
+        catch(Exception e){
+            //imessageLabel.setText("Wrong path");
+        }
+
+
+
     }
 
     @FXML

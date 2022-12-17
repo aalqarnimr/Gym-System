@@ -51,11 +51,25 @@ public class trainerAccount {
     String specialty, imagePath;
     Image sImage;
 
+
+    public void initialize(){
+
+        heightTextField.setText(""+Account.currentMember.getHeight());
+        weightTextField.setText(""+Account.currentMember.getWeight());
+        if (Account.currentMember instanceof Trainer){
+            specialtyTextField.setText(""+((Trainer) Account.currentMember).getSpecialty());
+        }
+
+
+//        PlansChoice.setValue("Choose a plan");
+    }
     @FXML
     void saveChanges() {
         try{
+
             height = Double.parseDouble(heightTextField.getText());
-            Account.currentMember.height=height;
+            Account.currentMember.setHeight(height);
+            APIComm.WriteTrainerToFile(APIComm.trainerList);
             System.out.println(height);
             hmessageLabel.setText("height recorded");
         }
@@ -64,7 +78,8 @@ public class trainerAccount {
         }
         try{
             weight = Double.parseDouble(weightTextField.getText());
-            Account.currentMember.weight = weight;
+            Account.currentMember.setWeight(weight);
+            APIComm.WriteTrainerToFile(APIComm.trainerList);
             System.out.println(weight);
             wmessageLabel.setText("Weight recorded");
         }
@@ -75,14 +90,21 @@ public class trainerAccount {
 
         specialty = specialtyTextField.getText();
         if (Account.currentMember instanceof Trainer){
-            ((Trainer) Account.currentMember).specialty = specialty;}
-//        sImage = imageView.getImage();
-        imagePath = imageView.getImage().getUrl();
+            ((Trainer) Account.currentMember).setSpecialty(specialty);
+            APIComm.WriteTrainerToFile(APIComm.trainerList);
 
+        }
+        try{
 
+            imagePath = imageView.getImage().getUrl();
+            Account.currentMember.setImgPath(imagePath);
+            APIComm.WriteTrainerToFile(APIComm.trainerList);
+            System.out.println(imagePath);
+        }
+        catch(Exception e){
+            imessageLabel.setText("Wrong path");
+        }
 
-        System.out.println(specialty);
-        System.out.println(imagePath);
 
     }
 

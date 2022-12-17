@@ -8,15 +8,17 @@ public class Member implements Serializable {
     double weight;
     String userName;
     String passWord;
+    String imgPath;
 
     private static final long serialVersionUID = 6529685098267757422L;
 
-    public Member(String name,double height,double weight,String userName,String passWord){
+    public Member(String name,double height,double weight,String userName,String passWord,String imgPath){
         this.name=name;
         this.height=height;
         this.weight=weight;
         this.userName=userName;
         this.passWord=passWord;
+        this.imgPath=imgPath;
     }
 
     public String getName(){
@@ -30,6 +32,8 @@ public class Member implements Serializable {
     }
     public String getUserName(){return this.userName;}
     public String getPassWord(){return this.passWord;}
+    public String getImgPath(){return this.imgPath;}
+
     public void setName(String name){this.name=name;}
     public void setHeight(double height){
         this.height=height;
@@ -39,6 +43,8 @@ public class Member implements Serializable {
     }
     public void setUserName(String userName){this.userName=userName;}
     public void setPassWord(String passWord){this.passWord=passWord;}
+    public void setImgPath(String imgPath){this.imgPath=imgPath;}
+
 
 
     public String toString(){

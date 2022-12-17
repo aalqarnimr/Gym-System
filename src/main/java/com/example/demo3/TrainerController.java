@@ -54,9 +54,11 @@ public class TrainerController {
     Trainer curr;
 
 
+
     public void initialize(){
         isEdit=false;
         curr = (Trainer) Account.getCurrentUser();
+
 //        PlansChoice.setValue("Choose a plan");
     }
 

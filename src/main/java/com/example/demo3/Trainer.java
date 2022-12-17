@@ -12,15 +12,16 @@ public class Trainer extends Member implements Serializable {
     public ArrayList<Trainee> traineeList;
     String trainerID;
 
+
     public Trainer(){
-        this("null",0,0,"null","null","null","null");
+        this("null",0,0,"null","null","null","null","C:\\Users\\Admin\\Gym-System4\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
     }
     public Trainer(String trainerID){
-        this("null",0,0,"null","null","null",trainerID);
+        this("null",0,0,"null","null","null",trainerID,"C:\\Users\\Admin\\Gym-System4\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
     }
 
-    public Trainer(String name,double height,double weight,String userName,String passWord,String specialty,String trainerID){
-        super(name,height,weight,userName,passWord);
+    public Trainer(String name,double height,double weight,String userName,String passWord,String specialty,String trainerID,String imgPath){
+        super(name,height,weight,userName,passWord,imgPath);
         this.specialty=specialty;
         this.traineeList= new ArrayList<>();
         this.trainerID= trainerID;
