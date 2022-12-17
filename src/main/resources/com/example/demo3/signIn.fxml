@@ -38,7 +38,7 @@
          </font>
       </Button>
       <TextField fx:id="passTextField" layoutX="106.0" layoutY="288.0" visible="false" />
-      <Button layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
+      <Button fx:id="backButton" layoutX="157.0" layoutY="556.0" mnemonicParsing="false" onAction="#backToWlc" text="Back" textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>

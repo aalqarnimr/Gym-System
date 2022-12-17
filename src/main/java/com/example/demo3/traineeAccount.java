@@ -89,11 +89,7 @@ public class traineeAccount {
         Scene scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
-//        root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
+
     }
 
 

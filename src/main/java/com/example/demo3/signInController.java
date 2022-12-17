@@ -18,9 +18,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class signInController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+
     @FXML
     private CheckBox checkBox;
     @FXML
@@ -37,22 +35,24 @@ public class signInController {
     private ToggleButton passToggle;
     @FXML
     private Button signInButton;
+    @FXML
+    private Button backButton;
 
     public static String pass;
     public static String name;
 
 
     @FXML
-    void backToWlc(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+    void backToWlc() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    void passToggle(ActionEvent event) {
+    void passToggle() {
         if (checkBox.isSelected()){
             passTextField.setText(passwordField.getText());
             passTextField.setVisible(true);
@@ -84,8 +84,6 @@ public class signInController {
         String s = messageLabel.getText();
         if (((name+pass+s).endsWith("trainer"))){
             for (int i = 0; i<APIComm.trainerList.size();i++){
-//            System.out.println(name+pass+"trainer");
-//            System.out.println(APIComm.trainerList.get(i).trainerID);
                 if((name+pass+"trainer").equals(APIComm.trainerList.get(i).trainerID)){
                     int x = i;
                     Trainer x1 = APIComm.trainerList.get(i);
@@ -101,8 +99,6 @@ public class signInController {
         }
         else if (((name+pass+s).endsWith("trainee"))){
             for (int i = 0; i<APIComm.traineeList.size();i++){
-//            System.out.println(name+pass+"trainer");
-//            System.out.println(APIComm.trainerList.get(i).trainerID);
                 if((name+pass+"trainee").equals(APIComm.traineeList.get(i).traineeID)){
                     int x = i;
                     Trainee trainee = APIComm.traineeList.get(i);
