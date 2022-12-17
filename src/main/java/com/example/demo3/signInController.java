@@ -84,8 +84,6 @@ public class signInController {
         String s = messageLabel.getText();
         if (((name+pass+s).endsWith("trainer"))){
             for (int i = 0; i<APIComm.trainerList.size();i++){
-//            System.out.println(name+pass+"trainer");
-//            System.out.println(APIComm.trainerList.get(i).trainerID);
                 if((name+pass+"trainer").equals(APIComm.trainerList.get(i).trainerID)){
                     int x = i;
                     Trainer x1 = APIComm.trainerList.get(i);
@@ -96,13 +94,10 @@ public class signInController {
                     stage.setScene(scene);
                     stage.show();
                 }
-
             }
         }
         else if (((name+pass+s).endsWith("trainee"))){
             for (int i = 0; i<APIComm.traineeList.size();i++){
-//            System.out.println(name+pass+"trainer");
-//            System.out.println(APIComm.trainerList.get(i).trainerID);
                 if((name+pass+"trainee").equals(APIComm.traineeList.get(i).traineeID)){
                     int x = i;
                     Trainee trainee = APIComm.traineeList.get(i);
@@ -113,7 +108,6 @@ public class signInController {
                     stage.setScene(scene);
                     stage.show();
                 }
-
             }
         }
 

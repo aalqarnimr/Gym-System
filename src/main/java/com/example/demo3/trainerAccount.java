@@ -37,6 +37,8 @@ public class trainerAccount {
     @FXML
     private Label weightLabel;
     @FXML
+    private Label hmessageLabel,wmessageLabel, imessageLabel;
+    @FXML
     private ImageView imageView;
     @FXML
     private TextField heightTextField;
@@ -50,24 +52,30 @@ public class trainerAccount {
     Image sImage;
 
     @FXML
-    void saveChanges(ActionEvent event) {
+    void saveChanges() {
         try{
             height = Double.parseDouble(heightTextField.getText());
+            Account.currentMember.height=height;
             System.out.println(height);
+            hmessageLabel.setText("height recorded");
         }
          catch(NumberFormatException e){
-                System.out.println("Height can't be text or empty");
+             hmessageLabel.setText("Height can't be text or empty");
         }
         try{
             weight = Double.parseDouble(weightTextField.getText());
+            Account.currentMember.weight = weight;
             System.out.println(weight);
+            wmessageLabel.setText("Weight recorded");
         }
          catch(NumberFormatException e){
-                System.out.println("Weight can't be text or empty");
+             wmessageLabel.setText("Weight can't be text or empty");
         }
 
 
         specialty = specialtyTextField.getText();
+        if (Account.currentMember instanceof Trainer){
+            ((Trainer) Account.currentMember).specialty = specialty;}
 //        sImage = imageView.getImage();
         imagePath = imageView.getImage().getUrl();
 
