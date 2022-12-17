@@ -108,35 +108,7 @@ public class TrainerController {
         stage.show();
     }
 
-    @FXML
-    public void confirm(){
-        boolean checker;
-        try {
-            traineeId=textField1.getText();
-             checker=APIComm.trainerList.get(0).checkTrainee(traineeId);
-            Plan selectedPlan = PlansChoice.getSelectionModel().getSelectedItem();
-            if (checker){
-                label2.setText("Error, trainee already added");
-            }
-            else if (selectedPlan==null)
-                label2.setText("you must Choose a plan");
-            else {
-                Trainee trainee=new Trainee(traineeId);
-                trainee.setUserName(APIComm.generateUserName());
-                trainee.setPassWord(APIComm.generatePassword());
-                trainee.plan=selectedPlan;
-                curr.addTrainee(trainee);
-                label2.setText("Trainee has been added successfully");
 
-            }
-
-
-        }
-        catch (Exception e){
-            System.out.println(e);
-            label2.setText("Wrong ID enterd");
-        }
-    }
     @FXML
     public void goToAddPlan() throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("AddPlan-view.fxml"));
@@ -162,9 +134,6 @@ public class TrainerController {
         stage.show();
     }
 
-    public void loadPlans(){
-        PlansChoice.getItems().clear();
-        PlansChoice.getItems().addAll(APIComm.savedPlans);
-    }
+
 
 }

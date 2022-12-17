@@ -4,33 +4,22 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane blendMode="DARKEN" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.TrainerController">
+<AnchorPane blendMode="DARKEN" cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.AddPageController">
    <children>
-      <Button layoutX="128.0" layoutY="384.0" mnemonicParsing="false" onAction="#confirm" prefHeight="56.0" prefWidth="105.0" text="Confirm">
+      <Button layoutX="130.0" layoutY="441.0" mnemonicParsing="false" onAction="#confirm" prefHeight="56.0" prefWidth="105.0" text="Confirm">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
          <effect>
             <InnerShadow height="20.0" radius="9.5" width="20.0" />
          </effect></Button>
-      <TextField fx:id="textField1" blendMode="MULTIPLY" cache="true" layoutX="94.0" layoutY="244.0" prefHeight="56.0" prefWidth="176.0" promptText="Enter Trainee ID">
-         <font>
-            <Font size="16.0" />
-         </font>
-         <effect>
-            <InnerShadow height="20.0" radius="9.5" width="20.0">
-               <color>
-                  <Color red="0.19188596308231354" green="0.25559210777282715" blue="0.8289473652839661" />
-               </color>
-            </InnerShadow>
-         </effect></TextField>
-      <Label fx:id="label2" alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefHeight="98.0" prefWidth="360.0" text="Entrer the trainee ID to add" textFill="#141414" textOverrun="WORD_ELLIPSIS">
+      <Label fx:id="label2" alignment="CENTER" contentDisplay="CENTER" layoutY="8.0" prefHeight="98.0" prefWidth="360.0" text="Entrer the trainee ID to add" textFill="#141414" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -42,8 +31,9 @@
          <effect>
             <InnerShadow height="20.0" radius="9.5" width="20.0" />
          </effect></Button>
-      <ChoiceBox fx:id="PlansChoice" layoutX="107.0" layoutY="313.0" prefWidth="150.0" />
-      <Button layoutX="270.0" layoutY="313.0" mnemonicParsing="false" onAction="#loadPlans" prefWidth="74.0" text="Load plans" />
+      <ChoiceBox fx:id="PlansChoice" layoutX="105.0" layoutY="390.0" prefWidth="150.0" />
+      <Button layoutX="272.0" layoutY="390.0" mnemonicParsing="false" onAction="#loadPlans" prefWidth="74.0" text="Load plans" />
+      <ListView fx:id="listView" layoutX="80.0" layoutY="106.0" prefHeight="271.0" prefWidth="200.0" />
    </children>
    <effect>
       <InnerShadow height="150.0" radius="74.5" width="150.0">
