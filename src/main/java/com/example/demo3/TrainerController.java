@@ -52,14 +52,20 @@ public class TrainerController {
     String traineeId;
     int x=0;
     Trainer curr;
+    @FXML
+    private Button editTrainerButton;
 
 
 
     public void initialize(){
+        editTrainerButton.setVisible(false);
         isEdit=false;
         curr = (Trainer) Account.getCurrentUser();
 
 //        PlansChoice.setValue("Choose a plan");
+        if (curr.trainerID.equals("adminadmintrainer")){
+            editTrainerButton.setVisible(true);
+        }
     }
 
     @FXML
@@ -132,6 +138,14 @@ public class TrainerController {
         Parent root = FXMLLoader.load(getClass().getResource("trainerPage.fxml"));
         Stage stage = (Stage) modifyPlanButton.getScene().getWindow();
         Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void showTrainers(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("viewMemebers.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

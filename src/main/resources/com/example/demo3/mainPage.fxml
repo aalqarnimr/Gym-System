@@ -11,7 +11,7 @@
 
 <AnchorPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.TrainerController">
    <children>
-      <Button fx:id="addTraineeButton" cache="true" layoutX="221.0" layoutY="160.0" mnemonicParsing="false" onAction="#toInfoPage" prefHeight="70.0" prefWidth="110.0" text="xx">
+      <Button fx:id="addTraineeButton" cache="true" layoutX="221.0" layoutY="160.0" mnemonicParsing="false" onAction="#toInfoPage" prefHeight="70.0" prefWidth="110.0" text="Add Trainee">
          <effect>
             <DropShadow />
          </effect>
@@ -35,7 +35,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button fx:id="addPlanButton" cache="true" layoutX="221.0" layoutY="377.0" mnemonicParsing="false" onAction="#goToAddPlan" prefHeight="70.0" prefWidth="110.0" text="Add plan">
+      <Button fx:id="addPlanButton" cache="true" layoutX="221.0" layoutY="285.0" mnemonicParsing="false" onAction="#goToAddPlan" prefHeight="70.0" prefWidth="110.0" text="Add plan">
          <effect>
             <DropShadow />
          </effect>
@@ -46,7 +46,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button fx:id="modifyPlanButton" cache="true" layoutX="42.0" layoutY="377.0" mnemonicParsing="false" onAction="#goToPlanList" prefHeight="70.0" prefWidth="110.0" text="Modify Plan">
+      <Button fx:id="modifyPlanButton" cache="true" layoutX="42.0" layoutY="285.0" mnemonicParsing="false" onAction="#goToPlanList" prefHeight="70.0" prefWidth="110.0" text="Modify Plan">
          <effect>
             <DropShadow />
          </effect>
@@ -57,7 +57,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button fx:id="modifyAccountButton" cache="true" layoutX="42.0" layoutY="537.0" mnemonicParsing="false" onAction="#goToModifyAccount" prefHeight="38.0" prefWidth="110.0" text="Modify account">
+      <Button fx:id="modifyAccountButton" cache="true" layoutX="22.0" layoutY="536.0" mnemonicParsing="false" onAction="#goToModifyAccount" prefHeight="38.0" prefWidth="110.0" text="Modify account">
          <effect>
             <DropShadow />
          </effect>
@@ -74,6 +74,17 @@
          </effect>
          <font>
             <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+      <Button fx:id="editTrainerButton" cache="true" layoutX="117.0" layoutY="412.0" mnemonicParsing="false" onAction="#showTrainers" prefHeight="70.0" prefWidth="126.0" text="edit Trainers" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="13.0" />
          </font>
          <cursor>
             <Cursor fx:constant="DEFAULT" />

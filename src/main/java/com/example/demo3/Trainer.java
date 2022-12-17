@@ -69,7 +69,7 @@ public class Trainer extends Member implements Serializable {
     }
 
     public String toString(){
-        return name;
+        return trainerID;
     }
 
 
