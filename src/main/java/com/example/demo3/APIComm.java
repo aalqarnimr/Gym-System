@@ -161,7 +161,7 @@ public class APIComm implements Initializable {
                 Object obj;
                 try {
                     obj = ostream.readObject();
-                    trainerList.addAll((Collection<? extends Trainer>) obj);
+                    traineeList.addAll((Collection<? extends Trainee>) obj);
                 } catch (EOFException e) {
                     break;
                 } catch (ClassNotFoundException e) {

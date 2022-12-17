@@ -48,7 +48,8 @@ public class deletePageController implements Initializable {
             int selID = listView.getSelectionModel().getSelectedIndex();
             for (int i = 0; i < curr.traineeList.size(); i++) {
                 if (listView.getSelectionModel().getSelectedItems().get(0).getId() == curr.traineeList.get(i).getId()) {
-                    APIComm.traineeList.add(curr.traineeList.get(i));
+                    curr.traineeList.get(i).assigned = false;
+                    System.out.println(APIComm.traineeList.toString());
                     curr.traineeList.remove(i);
                     APIComm.WriteTrainerToFile(APIComm.trainerList);
                     APIComm.WriteTraineeToFile(APIComm.traineeList);
