@@ -81,21 +81,43 @@ public class signInController {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
         messageLabel.setText(response.body());
+        String s = messageLabel.getText();
+        if (((name+pass+s).endsWith("trainer"))){
+            for (int i = 0; i<APIComm.trainerList.size();i++){
+//            System.out.println(name+pass+"trainer");
+//            System.out.println(APIComm.trainerList.get(i).trainerID);
+                if((name+pass+"trainer").equals(APIComm.trainerList.get(i).trainerID)){
+                    int x = i;
+                    Trainer x1 = APIComm.trainerList.get(i);
+                    Account.setCurrentUser(x1);
+                    Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+                    Stage stage = (Stage) signInButton.getScene().getWindow();
+                    Scene scene= new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
 
-        for (int i = 0; i<APIComm.trainerList.size();i++){
-            System.out.println(name+pass+"trainer");
-            System.out.println(APIComm.trainerList.get(i).trainerID);
-            if((name+pass+"trainer").equals(APIComm.trainerList.get(i).trainerID)){
-                int x = i;
-                Trainer x1 = APIComm.trainerList.get(i);
-                Account.setCurrentUser(x1);
-                Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-                Stage stage = (Stage) signInButton.getScene().getWindow();
-                Scene scene= new Scene(root);
-                stage.setScene(scene);
-                stage.show();
             }
         }
+        else if (((name+pass+s).endsWith("trainee"))){
+            for (int i = 0; i<APIComm.traineeList.size();i++){
+//            System.out.println(name+pass+"trainer");
+//            System.out.println(APIComm.trainerList.get(i).trainerID);
+                if((name+pass+"trainee").equals(APIComm.traineeList.get(i).traineeID)){
+                    int x = i;
+                    Trainee trainee = APIComm.traineeList.get(i);
+                    Account.setCurrentUser(trainee);
+                    Parent root = FXMLLoader.load(getClass().getResource("TraineeMainPage.fxml"));
+                    Stage stage = (Stage) signInButton.getScene().getWindow();
+                    Scene scene= new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
+
+            }
+        }
+
+
 
     }
     public static void main(String[] args) throws IOException, InterruptedException {

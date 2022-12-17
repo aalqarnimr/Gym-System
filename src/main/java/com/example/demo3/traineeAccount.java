@@ -49,7 +49,7 @@ public class traineeAccount {
 
 
     @FXML
-    void saveChanges(ActionEvent event){
+    void saveChanges(){
         try{
             height = Double.parseDouble(heightTextField.getText());
             System.out.println(height);
@@ -70,7 +70,7 @@ public class traineeAccount {
     }
 
     @FXML
-    void setChangePicButton(ActionEvent event){
+    void setChangePicButton(){
         try{
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
@@ -83,12 +83,17 @@ public class traineeAccount {
         }
     }
 
-    public void toMainPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+    public void toMainPage() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        Scene scene= new Scene(root);
         stage.setScene(scene);
         stage.show();
+//        root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
     }
 
 
