@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Session implements Serializable {
+public class Session implements Serializable
+{
 
     List<Workout> normSession=new LinkedList<>();
     List<Workout> warmupSession=new LinkedList<>();
 
+    private static final long serialVersionUID = 6529685098267757241L;
 
     public Session(){
 

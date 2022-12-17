@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -24,13 +23,14 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class signUp implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private Label label;
     @FXML
     private ChoiceBox<String> personType;
-    @FXML
-    private Button backButton;
     private String[] personList = {"trainer", "trainee"};
     @FXML
     private TextField usernametext;
@@ -38,10 +38,10 @@ public class signUp implements Initializable {
     private TextField passwordField;
     public static String name, pass, type;
 
-    public void backToWlc() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        Scene scene= new Scene(root);
+    public void backToWlc(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("wlcPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Trainer extends Member implements Serializable {
 
+    private static final long serialVersionUID = 6529685098262257422L;
     String specialty;
     public ArrayList<Trainee> traineeList;
     String trainerID;
