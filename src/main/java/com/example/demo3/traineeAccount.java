@@ -54,7 +54,6 @@ public class traineeAccount {
         heightTextField.setText(""+Account.currentMember.getHeight());
         weightTextField.setText(""+Account.currentMember.getWeight());
         System.out.println(Account.currentMember.getImgPath());
-        imageView.setImage(new Image(Account.currentMember.getImgPath()));
     }
 
     @FXML

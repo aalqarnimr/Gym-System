@@ -37,8 +37,10 @@ public class AddPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         curr = (Trainer) Account.getCurrentUser();
         for (int i=0; i< traineesList.length; i++){
-            traineesList[i]=APIComm.traineeList.get(i);
-            System.out.println("0");
+            if (APIComm.traineeList.get(i).assigned==false){
+                traineesList[i]=APIComm.traineeList.get(i);
+            }
+
         }
         listView.getItems().addAll(traineesList);
     }
@@ -56,11 +58,11 @@ public class AddPageController implements Initializable {
                     if (listView.getSelectionModel().getSelectedItems().get(0).getId().equals(APIComm.traineeList.get(i).getId())) {
                         APIComm.traineeList.get(i).plan=selectedPlan;
                         curr.addTrainee(APIComm.traineeList.get(i));
-                        APIComm.traineeList.remove(i);
+                        APIComm.traineeList.get(i).assigned = true;
                         APIComm.WriteTrainerToFile(APIComm.trainerList);
                         APIComm.WriteTraineeToFile(APIComm.traineeList);
                         label2.setText("Trainee was added successfully");
-
+                        System.out.println(APIComm.traineeList.toString());
                     }
                 }
                 listView.getItems().remove(selID);

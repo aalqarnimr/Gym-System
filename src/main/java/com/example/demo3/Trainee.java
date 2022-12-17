@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Trainee extends Member implements Serializable {
     Plan plan;
     String traineeID;
-
+    boolean assigned;
 
 
     private static final long serialVersionUID = 6529685091167757422L;
@@ -20,9 +20,8 @@ public class Trainee extends Member implements Serializable {
         super(name,height,weight,userName,passWord,imgPath);
         this.traineeID=traineeID;
         this.plan=plan;
+
     }
-
-
 
 
 
