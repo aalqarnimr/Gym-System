@@ -10,11 +10,11 @@ public class Trainee extends Member implements Serializable {
 
     private static final long serialVersionUID = 6529685091167757422L;
     public Trainee(){
-        this("null",0,0,"null","null","null",null,"C:\\Users\\Admin\\Gym-System4\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
+        this("null",0,0,"null","null","null",null,"C:\\Users\\aalqa\\Documents\\GitHub\\Gym-System\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
     }
 
     public Trainee(String traineeID){
-        this("null",0,0,"null","null",traineeID,null,"C:\\Users\\Admin\\Gym-System4\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
+        this("null",0,0,"null","null",traineeID,null,"C:\\Users\\aalqa\\Documents\\GitHub\\Gym-System\\src\\main\\resources\\com\\example\\demo3\\profile.jpg");
     }
     public Trainee(String name,double height,double weight,String userName,String passWord,String traineeID,Plan plan,String imgPath){
         super(name,height,weight,userName,passWord,imgPath);
