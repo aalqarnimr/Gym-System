@@ -20,7 +20,7 @@ public class MainApp extends Application {
 //        APIComm.WriteTraineeToFile(APIComm.traineeList);
 
         APIComm.getInfo();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("signIn.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("trainerPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 360, 600);
         stage.setTitle("GymApp");
         stage.setScene(scene);
