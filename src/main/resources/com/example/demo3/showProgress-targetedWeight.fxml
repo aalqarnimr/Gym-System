@@ -22,7 +22,7 @@
          <padding>
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
          </padding>
-         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToTargetedWeight" prefHeight="55.0" prefWidth="80.0" text="Targeted Weight" textAlignment="CENTER" wrapText="true">
+         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="80.0" text="Targeted Weight" textAlignment="CENTER" wrapText="true">
             <HBox.margin>
                <Insets />
             </HBox.margin>
@@ -33,7 +33,7 @@
                <Font name="System Italic" size="12.0" />
             </font>
          </Button>
-         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToRepetitions" prefHeight="55.0" prefWidth="80.0" text="Repetitions" textAlignment="CENTER" wrapText="true">
+         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="80.0" text="Repetitions" textAlignment="CENTER" wrapText="true">
             <HBox.margin>
                <Insets />
             </HBox.margin>
@@ -44,7 +44,7 @@
                <Font name="System Italic" size="12.0" />
             </font>
          </Button>
-         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToVolumeProgress" prefHeight="55.0" prefWidth="80.0" text="Volume Progress" textAlignment="CENTER" wrapText="true">
+         <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="55.0" prefWidth="80.0" text="Volume Progress" textAlignment="CENTER" wrapText="true">
             <HBox.margin>
                <Insets />
             </HBox.margin>

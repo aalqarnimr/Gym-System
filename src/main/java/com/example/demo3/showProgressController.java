@@ -30,11 +30,11 @@ public class showProgressController implements Initializable{
    // @FXML
    Label workoutLabel;
     public void switchToHomePage(ActionEvent event) throws IOException {
-        this.root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
-        this.stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
-        this.scene = new Scene(root);
-        this.stage.setScene(scene);
-        this.stage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("TraineeMainPage.fxml"));
+        Stage stage = (Stage) chart.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     public void showDetails() {
 

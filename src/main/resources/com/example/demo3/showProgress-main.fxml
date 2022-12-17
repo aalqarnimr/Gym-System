@@ -35,7 +35,7 @@
                <Font name="System Bold" size="36.0" />
             </font>
          </Label>
-         <Button mnemonicParsing="false" text="Home" GridPane.halignment="CENTER" />
+         <Button mnemonicParsing="false" onAction="#switchToHomePage" text="Home" GridPane.halignment="CENTER" />
       </GridPane>
    </top>
    <center>

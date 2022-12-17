@@ -104,14 +104,17 @@ public class ShowPlanController {
     }
 
     public void initialize(){
-        Member user = Account.getCurrentUser();
-        if (user instanceof Trainee){
-            curr= (Trainee) Account.getCurrentUser();
-            plan = curr.getPlan();
-            loadPlan();
+        try{
+            pageNameText.setText(plan.getName());
+            Member user = Account.getCurrentUser();
+            if (user instanceof Trainee){
+                curr= (Trainee) Account.getCurrentUser();
+                plan = curr.getPlan();
+                loadPlan();
+            }
+        } catch (Exception e){
+            plan = new Plan();
         }
-        pageNameText.setText(plan.getName());
-
     }
 
 
