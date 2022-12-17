@@ -11,7 +11,7 @@
 
 <AnchorPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.TraineeController">
    <children>
-      <Button fx:id="showProgressButton" cache="true" layoutX="125.0" layoutY="173.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="110.0" text="show Progress">
+      <Button fx:id="showProgressButton" cache="true" layoutX="125.0" layoutY="155.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="110.0" text="show Progress">
          <effect>
             <DropShadow />
          </effect>
@@ -30,7 +30,7 @@
             <InnerShadow />
          </effect>
       </Label>
-      <Button cache="true" layoutX="126.0" layoutY="372.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="110.0" text="Show Plan">
+      <Button cache="true" layoutX="124.0" layoutY="265.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="110.0" text="Show Plan">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -59,6 +59,14 @@
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
+      </Button>
+      <Button cache="true" layoutX="124.0" layoutY="377.0" mnemonicParsing="false" onAction="#toWorkouts" prefHeight="70.0" prefWidth="110.0" text="Workouts">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
    </children>
    <effect>
