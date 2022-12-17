@@ -36,6 +36,8 @@ public class APIComm implements Initializable {
     }
     public static void getInfo() throws IOException {
         workouts = new Workout[]{new Workout("push up"), new Workout("pull up"), new Workout("Lunges"),new Workout("Dumbbell rows"), new Workout("Chest Press"),new Workout("Leg Press")};
+        Workout w1 = new Workout("push up",0,3,10,10,9,"Chest and abdominal muscles","https://www.youtube.com/embed/IODxDxX7oi4");
+        avaliableWorkouts.add(w1);
         loadPlans();
         loadTrainers();
         loadTrainee();

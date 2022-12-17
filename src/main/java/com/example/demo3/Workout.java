@@ -1,10 +1,11 @@
 package com.example.demo3;
 
 import java.io.Serializable;
+import java.net.URI;
 
 public class Workout implements Serializable {
     private String name;
-    private String targetedMuscles;
+    String targetedMuscles;
     private int targetedSets;
     private static final long serialVersionUID = 6529685098267757690L;
 
@@ -19,9 +20,22 @@ public class Workout implements Serializable {
 
     double volumeProgress;
 
+    String youtubeLink;
+
     public Workout(String name){
         this.name = name;
     }
+    public Workout(String name,double targetWeight,int sets,int goalRepetitions,int actualRepetitions,double volumeProgress,String muscles,String youtubeLink){
+        this.name = name;
+        this.targetedWeight = targetWeight;
+        this.sets = sets;
+        this.goalRepetitions = goalRepetitions;
+        this.actualRepetitions = actualRepetitions;
+        this.volumeProgress = volumeProgress;
+        this.youtubeLink = youtubeLink;
+        targetedMuscles = muscles;
+    }
+
 
     public String toString(){
         return name;
