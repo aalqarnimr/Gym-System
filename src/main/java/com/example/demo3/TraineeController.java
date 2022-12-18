@@ -51,4 +51,12 @@ public class TraineeController {
         stage.show();
     }
 
+    public void toShowProgress() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("showProgress-main.fxml"));
+        Stage stage = (Stage) label.getScene().getWindow();
+        Scene scene= new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
