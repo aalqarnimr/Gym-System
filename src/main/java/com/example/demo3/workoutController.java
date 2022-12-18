@@ -98,8 +98,6 @@ public class workoutController implements Initializable {
         }
     }
 
-
-
     //Upper buttons
     public void switchToHomePage(ActionEvent event) throws IOException {
 
