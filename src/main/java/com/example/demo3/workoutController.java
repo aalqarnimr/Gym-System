@@ -100,7 +100,7 @@ public class workoutController implements Initializable {
 
     //Upper buttons
     public void switchToHomePage(ActionEvent event) throws IOException {
-
+        youtubeVid.getEngine().reload();
         root = FXMLLoader.load(getClass().getResource("TraineeMainPage.fxml"));
         stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
